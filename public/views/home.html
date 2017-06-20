@@ -1,2 +1,9 @@
 
-<h2>Home</h2>
+
+<div ng-controller="productsController as prdctCtrl">
+    <div ng-repeat="p in prdctCtrl.top5">
+        <h1>{{p.CakeName}}</h1>
+        <h2>{{p.Description}}</h2>
+        <h3> ש"ח{{p.price}}</h3>
+    </div>
+</div>
