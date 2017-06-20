@@ -70,7 +70,8 @@ router.post('/login', function (req,res,next) {
         }
         else
             res.send(null);
-    }).catch(function(err){ res.status(400).send(err);});
+    }).catch(function(err){
+        res.sendStatus(400)});
 });
 //-------------------------------------------------------------------------------------------------------------------
 router.get('/questions/:name', function (req,res,next) {
