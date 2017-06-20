@@ -1,6 +1,4 @@
-/**
- * Created by Maayan on 6/3/2017.
- */
+
 var express = require('express');
 var DButilsAzure = require('../utils');
 var Constants = require('../Constants');
@@ -66,11 +64,12 @@ router.post('/login', function (req,res,next) {
         if(result.length >0) {
             var token = Math.random();
             router.users[name] = token;
-            res.send(token);
+            res.sendStatus(token);
         }
         else
             res.send(null);
     }).catch(function(err){
+        console,log(err);
         res.sendStatus(400)});
 });
 //-------------------------------------------------------------------------------------------------------------------
