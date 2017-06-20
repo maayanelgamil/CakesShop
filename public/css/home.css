@@ -4,3 +4,47 @@ body{
     background-size:cover;
     background-position:center;
 }
+.logo {
+    position    : absolute;
+    left        : 50%;
+    margin-left : -100px; /* half width of img */
+}
+
+.menu {
+    list-style-type: none;
+    margin-left:37%;
+    margin-right: 30%;
+    margin-top: 16%;
+    background-color: #fffb8f !important;
+    letter-spacing:4px;
+    position: fixed;
+    text-align: center;
+}
+
+.li {
+    padding: 0;
+    float: left;
+    list-style-type: none;
+    font-size: 1.2em;
+    height: 40px;
+    text-align: center;
+
+}
+
+.btn_menu {
+    outline:none;
+    border:none;
+    width:auto;
+    float: left;
+    display: block;
+    color: #ff986d;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: .3s background-color;
+
+}
+.btn_menu:hover{
+    background-color: #faf3f8;
+}

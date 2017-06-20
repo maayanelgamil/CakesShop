@@ -9,22 +9,17 @@
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=">
     <link rel="stylesheet" type="text/css" href="css/home.css" />
 </head>
+
 <body>
-    <header><h1>Cake Shop</h1></header>
-    <img src="images\littlest-cake-shop-logo.gif" alt="cake" width="150" height="150" style="border-radius: 50%">
+    <img src="images\littlest-cake-shop-logo.gif" class="logo" alt="logo" width="150" height="150" style="border-radius: 50%; margin-top:3%">
     <div ng-view></div>
     <div ng-controller="mainController as mainCtrl">
-        <div>
-            <a href="#/">Home</a>
-        </div>
-        <div ng-show="mainCtrl.userService.isLoggedIn">
-            <a href="#/cities">Cities List</a>
-        </div>
-        <div>
-                <a href="#/login">Login</a>
-        </div>
-        <div>
-                <a href="#/register">Register</a>
+        <div class="menu">
+        <li class="li"><a class="btn_menu" href="#/">Home</a></li>
+        <li class="li" ng-show="mainCtrl.userService.isLoggedIn">
+            <a class="btn_menu" href="#/cities">Cities List</a></li>
+        <li class="li"><a class="btn_menu" href="#/login">Login</a></li>
+        <li class="li"><a class="btn_menu" href="#/register">Register</a></li>
         </div>
     </div>
     <br>
