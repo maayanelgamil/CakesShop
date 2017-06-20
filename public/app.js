@@ -96,7 +96,8 @@ app.config( ['$routeProvider', function($routeProvider) {
             templateUrl : "views/register.html",
             controller: "mainController"
         })
-        .otherwise({redirect: '/',
+        .otherwise({
+            redirectTo : 'index.html'
         });
 }]);
 //-------------------------------------------------------------------------------------------------------------------

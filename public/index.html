@@ -10,6 +10,7 @@
 </head>
 <body>
     <header><h1>Cake Shop</h1></header>
+    <div ng-view></div>
     <div ng-controller="mainController as mainCtrl">
         <div>
             <a href="#/">Home</a>
@@ -18,14 +19,10 @@
             <a href="#/cities">Cities List</a>
         </div>
         <div>
-            <span ng-hide="mainCtrl.userService.isLoggedIn">
                 <a href="#/login">Login</a>
-            </span>
         </div>
         <div>
-            <span ng-hide="mainCtrl.userService.isLoggedIn">
                 <a href="#/register">Register</a>
-            </span>
         </div>
     </div>
     <div ng-controller="productsController as prdctCtrl">
@@ -37,7 +34,5 @@
     </div>
     <br>
     <br>
-    <ng-view></ng-view>
-
 </body>
 </html>
