@@ -24,6 +24,16 @@ app.controller('loginController', ['UserService', '$location', '$window',
         };
 }]);
 //-------------------------------------------------------------------------------------------------------------------
+app.controller('productsController', ['$http', function($http) {
+    let self = this;
+    self.getCities = function () {
+        $http.get('/cakes/top5')
+            .then(function (res) {
+                self.top5 = res.data;
+            });
+    };
+}]);
+//-------------------------------------------------------------------------------------------------------------------
 app.controller('citiesController', ['$http', function($http) {
         let self = this;
         self.fieldToOrderBy = "name";
@@ -56,6 +66,7 @@ app.factory('UserService', ['$http', function($http) {
     };
     return service;
 }]);
+
 //-------------------------------------------------------------------------------------------------------------------
 app.config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
@@ -73,6 +84,10 @@ app.config( ['$routeProvider', function($routeProvider) {
         .when("/cities", {
             templateUrl : "views/cities.html",
             controller: 'citiesController'
+        })
+        .when("/register", {
+            templateUrl : "views/register.html",
+            controller: "mainController"
         })
         .otherwise({redirect: '/',
         });

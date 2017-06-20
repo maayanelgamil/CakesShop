@@ -64,12 +64,12 @@ router.post('/login', function (req,res,next) {
         if(result.length >0) {
             var token = Math.random();
             router.users[name] = token;
-            res.sendStatus(token);
+            res.send(token);
         }
         else
             res.send(null);
     }).catch(function(err){
-        console,log(err);
+        console.log(err);
         res.sendStatus(400)});
 });
 //-------------------------------------------------------------------------------------------------------------------

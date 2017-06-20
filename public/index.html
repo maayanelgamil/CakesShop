@@ -8,7 +8,7 @@
     <script type="text/javascript" src="angularScripts/angular-route.js"></script>
 </head>
 <body>
-    <header><h1>Routing App Example</h1></header>
+    <header><h1>Cake Shop</h1></header>
 
     <div ng-controller="mainController as mainCtrl">
         <div>
@@ -20,6 +20,11 @@
         <div>
             <span ng-hide="mainCtrl.userService.isLoggedIn">
                 <a href="#/login">Login</a>
+            </span>
+        </div>
+        <div>
+            <span ng-hide="mainCtrl.userService.isLoggedIn">
+                <a href="#/register">Register</a>
             </span>
         </div>
     </div>
