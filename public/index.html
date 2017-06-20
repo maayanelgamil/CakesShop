@@ -27,6 +27,13 @@
                 <a href="#/register">Register</a>
         </div>
     </div>
+    <div ng-controller="productsController as prdctCtrl">
+        <div ng-repeat="p in prdctCtrl.top5">
+            <h1>{{p.CakeName}}</h1>
+            <h2>{{p.Description}}</h2>
+            <h3> ש"ח{{p.price}}</h3>
+        </div>
+    </div>
     <br>
     <br>
 </body>
