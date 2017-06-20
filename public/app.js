@@ -26,11 +26,17 @@ app.controller('loginController', ['UserService', '$location', '$window',
 //-------------------------------------------------------------------------------------------------------------------
 app.controller('productsController', ['$http', function($http) {
     let self = this;
-    self.getCities = function () {
-        $http.get('/cakes/top5')
-            .then(function (res) {
-                self.top5 = res.data;
-            });
+
+    $http.get('/cakes/top5')
+        .then(function (res) {
+            self.top5 = res.data;
+        })
+        .catch(function (e) {
+            return Promise.reject(e);
+    });
+
+    self.addToCart = function (productName ) {
+      alert(productName);
     };
 }]);
 //-------------------------------------------------------------------------------------------------------------------
@@ -42,6 +48,7 @@ app.controller('citiesController', ['$http', function($http) {
             $http.get('/cakes/')
                 .then(function (res) {
                     self.cities = res.data;
+
                 });
         };
     }]);

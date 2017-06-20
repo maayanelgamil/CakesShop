@@ -2,7 +2,7 @@
 <html lang="en" ng-app="CakesShop">
 <head>
     <meta charset="UTF-8">
-    <title>My Page</title>
+    <title>Cakes Shop</title>
     <script src="angularScripts/angular.js"></script>
     <script src="app.js"></script>
     <script type="text/javascript" src="angularScripts/angular-route.js"></script>
@@ -10,7 +10,6 @@
 </head>
 <body>
     <header><h1>Cake Shop</h1></header>
-
     <div ng-controller="mainController as mainCtrl">
         <div>
             <a href="#/">Home</a>
@@ -27,6 +26,13 @@
             <span ng-hide="mainCtrl.userService.isLoggedIn">
                 <a href="#/register">Register</a>
             </span>
+        </div>
+    </div>
+    <div ng-controller="productsController as prdctCtrl">
+        <div ng-repeat="p in prdctCtrl.top5">
+            <h1>{{p.CakeName}}</h1>
+            <h2>{{p.Description}}</h2>
+            <h3> ש"ח{{p.price}}</h3>
         </div>
     </div>
     <br>
