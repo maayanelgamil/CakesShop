@@ -101,4 +101,16 @@ router.get('/byName/:name', function (req,res,next) {
     }).catch(function(err){ res.status(400).send(err);});
 });
 
+function checkLogin(req) {
+    let token = req.headers["my-token"];
+    let user = req.headers["user"];
+    if (!token || !user)
+        return false;
+    let validToken = req.app.users[user];
+    if (validToken == token)
+        return true;
+    else
+        return false;
+}
+
 module.exports = router;

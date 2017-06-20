@@ -38,8 +38,8 @@ app.controller('citiesController', ['$http', function($http) {
         let self = this;
         self.fieldToOrderBy = "name";
         // self.cities = [];
-        self.getCities = function () {
-            $http.get('/cities')
+        self.getCakes = function () {
+            $http.get('/cakes/')
                 .then(function (res) {
                     self.cities = res.data;
                 });
@@ -52,7 +52,7 @@ app.factory('UserService', ['$http', function($http) {
     service.login = function(user) {
         return $http.post('/users/login', user)
             .then(function(response) {
-                let token = response.data;
+                let token = response.body.token;
                 $http.defaults.headers.common = {
                     'my-Token': token,
                     'user' : user.username
