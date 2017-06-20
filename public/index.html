@@ -12,7 +12,6 @@
 <body>
     <header><h1>Cake Shop</h1></header>
     <img src="images\littlest-cake-shop-logo.gif" alt="cake" width="150" height="150" style="border-radius: 50%">
-    <div ng-view></div>
     <div ng-controller="mainController as mainCtrl">
         <div>
             <a href="#/">Home</a>
@@ -27,6 +26,7 @@
                 <a href="#/register">Register</a>
         </div>
     </div>
+    <div ng-view></div>
     <br>
     <br>
 </body>
