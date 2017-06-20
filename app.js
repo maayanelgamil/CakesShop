@@ -12,6 +12,8 @@ var cakes = require('./Server/routes/Cakes');
 var route = require('./Server/routes/route');
 
 var app = express();
+app.locals.users = {};
+app.locals.tokens = 0;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
