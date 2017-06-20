@@ -4,6 +4,7 @@ var DButilsAzure = require('../utils');
 var Constants = require('../Constants');
 var router = express.Router();
 router.users = {};
+router.tokens = 0;
 
 router.post('/register', function (req,res) {     //Add User
     var username = req.body[0].UseName;
@@ -64,13 +65,13 @@ router.post('/login', function (req,res,next) {
         if(result.length >0) {
             var token = Math.random();
             router.users[name] = token;
-            res.send(token);
+            res.send({token: token});
         }
         else
             res.send(null);
     }).catch(function(err){
         console.log(err);
-        res.sendStatus(400)});
+        res.sendStatus(403)});
 });
 //-------------------------------------------------------------------------------------------------------------------
 router.get('/questions/:name', function (req,res,next) {
