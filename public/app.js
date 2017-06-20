@@ -1,8 +1,5 @@
-/**
- * Created by Hasidi on 18/06/2017.
- */
 
-let app = angular.module('myApp', ['ngRoute']);
+let app = angular.module('CakesShop', ['ngRoute']);
 //-------------------------------------------------------------------------------------------------------------------
 app.controller('mainController', ['UserService', function (UserService) {
     let vm = this;
@@ -12,7 +9,7 @@ app.controller('mainController', ['UserService', function (UserService) {
 app.controller('loginController', ['UserService', '$location', '$window',
     function(UserService, $location, $window) {
         let self = this;
-        self.user = {username: '', password: ''};
+        self.user = {UserName: '', Password: ''};
 
         self.login = function(valid) {
             if (valid) {
@@ -43,7 +40,7 @@ app.factory('UserService', ['$http', function($http) {
     let service = {};
     service.isLoggedIn = false;
     service.login = function(user) {
-        return $http.post('/login', user)
+        return $http.post('/users/login', user)
             .then(function(response) {
                 let token = response.data;
                 $http.defaults.headers.common = {

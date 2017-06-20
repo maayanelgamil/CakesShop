@@ -5,6 +5,7 @@ var express = require('express');
 var DButilsAzure = require('../utils');
 var Constants = require('../Constants');
 var router = express.Router();
+router.users = {};
 
 router.post('/register', function (req,res) {     //Add User
     var username = req.body[0].UseName;
@@ -58,14 +59,17 @@ router.get('/getAll', function (req,res,next) {
     }).catch(function(err){ res.status(400).send(err);});
 });
 //-------------------------------------------------------------------------------------------------------------------
-router.put('/login', function (req,res,next) {
+router.post('/login', function (req,res,next) {
     var name = req.body.UserName;
     var password = req.body.Password;
     DButilsAzure.Select("Select * from Users Where UserName = '" + name + "' AND Password = '" + password + "'").then(function (result) {
-        if(result.length >0)
-            res.send(true);
+        if(result.length >0) {
+            var token = Math.random();
+            router.users[name] = token;
+            res.send(token);
+        }
         else
-            res.send(false);
+            res.send(null);
     }).catch(function(err){ res.status(400).send(err);});
 });
 //-------------------------------------------------------------------------------------------------------------------
