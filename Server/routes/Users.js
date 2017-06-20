@@ -140,7 +140,7 @@ function checkLogin(req) {
     let user = req.headers["user"];
     if (!token || !user)
         return false;
-    let validToken = req.app.users[user];
+    let validToken = req.app.locals.users[user];
     if (validToken == token)
         return true;
     else
