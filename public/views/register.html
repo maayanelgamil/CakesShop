@@ -1,10 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-</head>
-<body>
+<div class="regBackground">
+    <h1 class="regHeader">Sign Up</h1>
+    <div ng-controller="registerController as regCtrl">
+        <div class="register-form">
+            <form name="registerForm" ng-submit="regCtrl.register(registerForm.$valid)" novalidate>
+                <!-- User Name -->
+                <div class="form-group">
+                    <label class="InputHeader">Username</label>
+                    <input type="text"
+                           ng-model="regCtrl.user.UserName"
+                           ng-required="true"
+                           class="form-control input"
+                           name="usernameInput"
+                           placeholder="Enter Username"
+                           ng-minlength="5"
+                            ng-maxlength="10">
+                    <p ng-show="registerForm.usernameInput.$invalid && !registerForm.usernameInput.$pristine" class="help-block">Username is required</p>
+                    <p ng-show="registerForm.usernameInput.$error.minlength && !registerForm.usernameInput.$pristine" class="help-block"> Username must contain at least 5 characters</p>
+                    <p ng-show="registerForm.usernameInput.$error.maxlength && !registerForm.usernameInput.$pristine" class="help-block"> Username must contain at least 10 characters</p>
+                </div>
+                <!-- Password -->
+                <div class="form-group">
+                    <label class="InputHeader">Password</label>
+                    <input type="password"
+                           ng-model="regCtrl.user.Password"
+                           ng-required="true"
+                           class="form-control input"
+                           name="passwordInput"
+                           placeholder="Enter Password"
+                           ng-minlength="3"
+                            ng-maxlength="8">
+                    <p ng-show="registerForm.passwordInput.$invalid && !registerForm.passwordInput.$pristine" class="help-block">Password is required</p>
+                    <p ng-show="registerForm.passwordInput.$error.minlength && !registerForm.passwordInput.$pristine" class="help-block">Password must contain at least 3 characters</p>
+                    <p ng-show="registerForm.passwordInput.$error.maxlength && !registerForm.passwordInput.$pristine" class="help-block">Password must contain at least 8 characters</p>
+                </div>
+                <!-- First Name -->
+                <div class="form-group">
+                    <label class="InputHeader">First Name</label>
+                    <input type="text"
+                           ng-model="regCtrl.user.FirstName"
+                           class="form-control input"
+                           name="FirstNameInput"
+                           placeholder="Enter Your First Name">
+                </div>
+                <!-- Last Name -->
+                <div class="form-group">
+                    <label class="InputHeader">Last Name</label>
+                    <input type="text"
+                           ng-model="regCtrl.user.LastName"
+                           class="form-control input"
+                           name="lastNameInput"
+                           placeholder="Enter Your Last Name">
+                </div>
+                <!-- Address -->
+                <div class="form-group">
+                    <label class="InputHeader">Address</label>
+                    <input type="text"
+                           ng-model="regCtrl.user.Adress"
+                           class="form-control input"
+                           name="AddressInput"
+                           placeholder="Enter Address"
+                    >
+                </div>
+                <br>
+                <!-- Submit -->
+                <input type="submit"
+                       class="btn btn-success btn-lg submit"
+                       value="Submit"
+                       ng-disabled="registerForm.$invalid">
+            </form>
+            <div>
+                {{regCtrl.errorMessage}}
+            </div>
+        </div>
 
-</body>
-</html>
+    </div>
+</div>

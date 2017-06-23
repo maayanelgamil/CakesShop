@@ -1,9 +1,19 @@
 
 
-<div ng-controller="productsController as prdctCtrl">
-    <div ng-repeat="p in prdctCtrl.top5">
-        <h1>{{p.CakeName}}</h1>
-        <h2>{{p.Description}}</h2>
-        <h3> ש"ח{{p.price}}</h3>
-    </div>
+<div ng-controller="productsController as prdctCtrl" class="top5">
+    <h1 class="header">Top Five Sellers</h1>
+    <span ng-repeat="p in prdctCtrl.top5" class="container" >
+        <img ng-src="{{p.ImagePath}}" class="imgTop5 image">
+        <div class="middle">
+            <div class="text">
+               <h1 class="headerText"> {{p.CakeName}}</h1>
+                {{p.Description}}
+                <br>
+                <h1 class="headerText"> {{p.price}} $ </h1>
+
+            </div>
+        </div>
+    </span>
 </div>
+
+

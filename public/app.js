@@ -23,6 +23,26 @@ app.controller('loginController', ['UserService', '$location', '$window',
             }
         };
 }]);
+
+//-------------------------------------------------------------------------------------------------------------------
+app.controller('registerController', ['UserService', '$location', '$window', '$http',
+    function(UserService, $location, $window, $http) {
+        let self = this;
+        self.user = {UserName: '', Password: '', FirstName: '', LastName: '' , Adress: '',
+                     City: '', Country: '', Phone: '', Mail: '',CreditCardNumber: '', isADmin: 0};
+
+        self.register = function(valid) {
+            if (valid) {
+                $http.post('/../',self.user).then(function (success) {
+                    $window.alert('Register Successfully');
+                    $location.path('/');
+                }, function (error) {
+                    self.errorMessage = error.data;
+                    $window.alert('register has failed');
+                })
+            }
+        };
+    }]);
 //-------------------------------------------------------------------------------------------------------------------
 app.controller('productsController', ['$http', function($http) {
     let self = this;
