@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="CakesShop">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Cakes Shop</title>
     <link rel="shortcut icon" href="images/cakeIcon.png" type="image/x-icon" />
     <script src="angularScripts/angular.js"></script>
-    <script src="app.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+    <script type="text/javascript" src="./registerController.js"></script>
+    <script type="text/javascript" src="./homeController.js"></script>
+    <script type="text/javascript" src="./loginController.js"></script>
     <script type="text/javascript" src="angularScripts/angular-route.js"></script>
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=">
     <link rel="stylesheet" type="text/css" href="css/home.css" />
@@ -14,21 +17,19 @@
 
 </head>
 
-<body style="display:flex; flex-flow: column;">
+<body style="display:flex; flex-flow: column;" ng-app="CakesShop">
     <header style="order:1">
         <img src="images\littlest-cake-shop-logo.gif" class="logo" alt="logo">
     </header>
-    <div ng-controller="mainController as mainCtrl" style="order:2">
+    <div style="order:2">
         <div class="menu">
             <li class="li"><a class="btn_menu" href="#/">Home</a></li>
             <li class="li"><a class="btn_menu" href="#/login">Login</a></li>
             <li class="li"><a class="btn_menu" href="#/register">Register</a></li>
-         </div>
+        </div>
         <div ng-view style="order:3"> </div>
     </div>
     <br>
     <br>
 </body>
-
-
 </html>
