@@ -1,13 +1,14 @@
 /**
  * Created by Maayan on 6/24/2017.
  */
-angular.module('CakesShop', ['ngRoute']).controller('mainController', ['$scope', 'UserService', function ($scope, UserService) {
-    let vm = $scope;
-    vm.userService = UserService;
-}]);
-angular.module('CakesShop', ['ngRoute']).factory('UserService', ['$http', function($http) {
+'use strict';
+app.factory('UserService', ['$http', function($http) {
     let service = {};
     service.isLoggedIn = false;
+
+    let vm = this;
+    vm.userService = UserService;
+
     service.login = function(user) {
         return $http.post('/users/login', user)
             .then(function(response) {
@@ -26,12 +27,12 @@ angular.module('CakesShop', ['ngRoute']).factory('UserService', ['$http', functi
     return service;
 }]);
 //-------------------------------------------------------------------------------------------------------------------
-angular.module('CakesShop').controller('productsController', ['$scope', '$http', function($scope, $http) {
-    //let self = this;
+app.controller('productsController', ['$scope', '$http', function($scope, $http) {
+    let self = this;
 
     $http.get('/cakes/top5')
         .then(function (res) {
-            $scope.top5 = res.data;
+            self.top5 = res.data;
         })
         .catch(function (e) {
             return Promise.reject(e);

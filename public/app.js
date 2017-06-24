@@ -1,13 +1,16 @@
 'use strict';
 
-var app = angular.module('CakesShop', [ 'ngRoute' ]);
+var app = angular.module('CakesShop', [ 'ngRoute']);
 
+app.config(['$locationProvider', function($locationProvider) {
+    $locationProvider.hashPrefix('');
+}]);
 //-------------------------------------------------------------------------------------------------------------------
 app.config( ['$routeProvider', function($routeProvider) {
     $routeProvider
         .when("/", {
             templateUrl : "views/home.html",
-            controller : "mainController"
+            controller : "productsController"
         })
         .when("/login", {
             templateUrl : "views/login.html",
@@ -16,9 +19,8 @@ app.config( ['$routeProvider', function($routeProvider) {
         .when("/register", {
             templateUrl : "views/register.html",
             controller: "registerController"
-        })
-        .otherwise({
-            redirectTo : 'views/home.html'
-        });
+        }).otherwise({
+        redirectTo : "/"
+    });
 }]);
 //-------------------------------------------------------------------------------------------------------------------

@@ -1,9 +1,10 @@
 /**
  * Created by Maayan on 6/24/2017.
  */
+'use strict';
 //-------------------------------------------------------------------------------------------------------------------
-angular.module('CakesShop').controller('loginController', ['$scope', 'UserService', '$location', '$window',
-    function(UserService, $location, $window, $scope) {
+app.controller('loginController', ['$scope', '$location', '$window',
+    function($location, $window, $scope) {
         //let self = this;
         $scope.user = {UserName: '', Password: ''};
 
