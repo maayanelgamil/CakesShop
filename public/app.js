@@ -10,6 +10,8 @@ app.controller('loginController', ['UserService', '$location', '$window',
     function(UserService, $location, $window) {
         let self = this;
         self.user = {UserName: '', Password: ''};
+        self.restorePswd = false;
+        self.answer = {Answer1:'', Answer2:''};
 
         self.login = function(valid) {
             if (valid) {
@@ -22,6 +24,15 @@ app.controller('loginController', ['UserService', '$location', '$window',
                 })
             }
         };
+
+        self.restore = function () {
+            if (self.user.UserName === ''){
+                $window.alert('Please enter user name');
+            }
+            else {
+                self.restorePswd = true;
+            }
+        }
 }]);
 
 //-------------------------------------------------------------------------------------------------------------------

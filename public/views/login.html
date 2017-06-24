@@ -1,41 +1,76 @@
-<div class="regBackground">
-    <h2 class="regHeader">Login</h2>
+<div class="logBackground">
+    <h2 class="logHeader">Login</h2>
     <div class="login-container " ng-controller="loginController as loginCtrl">
-        <div class="login-form">
+        <div ng-hide="loginCtrl.restorePswd" class="login-form">
             <form name="loginForm" ng-submit="loginCtrl.login(loginForm.$valid)" novalidate>
                 <div class="form-group">
-                    <label class="InputHeader">Username</label>
+                    <label class="logInputHeader">Username</label>
                     <input type="text"
                            ng-model="loginCtrl.user.UserName"
                            ng-required="true"
-                           class="form-control input"
+                           class="form-control logInput"
                            name="usernameInput"
                            placeholder="Enter Username">
                     <p ng-show="loginForm.usernameInput.$invalid && !loginForm.usernameInput.$pristine" class="help-block">username is required</p>
 
                 </div>
                 <div class="form-group">
-                    <label class="InputHeader">Password</label>
+                    <label class="logInputHeader">Password</label>
                     <input type="password"
                            ng-model="loginCtrl.user.Password"
                            ng-required="true"
-                           class="form-control input"
+                           class="form-control logInput"
                            name="passwordInput"
-                           placeholder="Enter Password"
-                           ng-minlength="3">
-                    <p ng-show="loginForm.passwordInput.$error.minlength && !loginForm.passwordInput.$pristine" class="help-block">Password is too short</p>
+                           placeholder="Enter Password">
+                    <p ng-show="loginForm.passwordInput.$invalid && !loginForm.passwordInput.$pristine" class="help-block">Password is required</p>
                 </div>
                 <br>
                 <input type="submit"
-                       class="btn btn-success btn-lg submit"
+                       class="btn btn-success btn-lg logSubmit"
                        value="Login"
                        ng-disabled="loginForm.$invalid">
+                <br>
+                <button ng-click="loginCtrl.restore()" class="logSubmit">
+                    Restore Password
+                </button>
             </form>
             <div>
                 {{loginCtrl.errorMessage}}
             </div>
         </div>
+        <div ng-show="loginCtrl.restorePswd">
+            <form name="restoreForm" ng-submit="loginCtrl.login(restoreForm.$valid)" novalidate>
+                <div class="form-group">
+                    <label class="logInputHeader">Question #1</label>
+                    <input type="text"
+                           ng-model="loginCtrl.user.UserName"
+                           ng-required="true"
+                           class="form-control logInput"
+                           name="usernameInput"
+                           placeholder="Enter Answer">
+                    <p ng-show="restoreForm.usernameInput.$invalid && !restoreForm.usernameInput.$pristine" class="help-block">username is required</p>
 
+                </div>
+                <div class="form-group">
+                    <label class="logInputHeader">Question #2</label>
+                    <input type="password"
+                           ng-model="loginCtrl.user.Password"
+                           ng-required="true"
+                           class="form-control logInput"
+                           name="answer2Input"
+                           placeholder="Enter Answer">
+                    <p ng-show="restoreForm.answer2Input.$invalid && !restoreForm.answer2Input.$pristine" class="help-block">Password is required</p>
+                </div>
+                <br>
+                <input type="submit"
+                       class="btn btn-success btn-lg logSubmit"
+                       value="Login"
+                       ng-disabled="restoreForm.$invalid">
+            </form>
+            <div>
+                {{loginCtrl.errorMessage}}
+            </div>
+        </div>
     </div>
 
 </div>
