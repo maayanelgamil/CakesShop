@@ -5,29 +5,29 @@ let Constants = require('../Constants');
 let router = express.Router();
 
 router.post('/register', function (req,res) {     //Add User
-    let username = req.body[0].UserName;
-    let password = req.body[0].Password;
-    let firstName = req.body[0].FirstName;
-    let lastName = req.body[0].LastName;
-    let adress = req.body[0].Adress;
-    let city = req.body[0].City;
-    let country = req.body[0].Country;
-    let phone = req.body[0].Phone;
-    let mail = req.body[0].Mail;
-    let creditCard = req.body[0].CreditCardNumber;
-    let isAdmin = req.body[0].isAdmin ? req.body[0].isAdmin : 0;
-    let q1 = req.body[0].Question1;
-    let q2 = req.body[0].Question2;
-    let a1 = req.body[0].Answer1;
-    let a2 = req.body[0].Answer2;
+    let username = req.body.UserName;
+    let password = req.body.Password;
+    let firstName = req.body.FirstName;
+    let lastName = req.body.LastName;
+    let adress = req.body.Adress;
+    let city = req.body.City;
+    let country = req.body.Country;
+    let phone = req.body.Phone;
+    let mail = req.body.Mail;
+    let creditCard = req.body.CreditCardNumber;
+    let isAdmin = req.body.isAdmin ? req.body.isAdmin : 0;
+    let q1 = req.body.Question1;
+    let q2 = req.body.Question2;
+    let a1 = req.body.Answer1;
+    let a2 = req.body.Answer2;
 
     query = DBUtilsAzure.getInsertScript(Constants.usersInsert, [username, password, firstName, lastName, adress, city,
                                                             country, phone, mail, creditCard, isAdmin, q1, q2, a1, a2]);
     DBUtilsAzure.Insert(query).then(function (result) { //insert user's questions and answers
          if (result == true) {
-             let c1 = req.body[0].Category1;
-             let c2 = req.body[0].Category2;
-             let c3 = req.body[0].Category3;
+             let c1 = req.body.Category1;
+             let c2 = req.body.Category2;
+             let c3 = req.body.Category3;
                 categoryQuery = DBUtilsAzure.getInsertScript(Constants.userCategoryInsert, [username, c1, c2, c3]);
                 DBUtilsAzure.Insert(categoryQuery).then(function (result)
                     {

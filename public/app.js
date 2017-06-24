@@ -42,7 +42,7 @@ app.controller('registerController', ['UserService', '$location', '$window', '$h
 
         self.register = function(valid) {
           if (valid) {
-                $http.post('/register',self.user).then(function (success) {
+                $http.post('users/register',self.user).then(function (success) {
                     $window.alert('Register Successfully');
                     $location.path('/');
                 }, function (error) {
