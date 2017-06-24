@@ -5,7 +5,7 @@ let Constants = require('../Constants');
 let router = express.Router();
 
 router.post('/register', function (req,res) {     //Add User
-    let username = req.body[0].UseName;
+    let username = req.body[0].UserName;
     let password = req.body[0].Password;
     let firstName = req.body[0].FirstName;
     let lastName = req.body[0].LastName;
@@ -16,18 +16,18 @@ router.post('/register', function (req,res) {     //Add User
     let mail = req.body[0].Mail;
     let creditCard = req.body[0].CreditCardNumber;
     let isAdmin = req.body[0].isAdmin ? req.body[0].isAdmin : 0;
-    let q1 = req.body[1].Question1;
-    let q2 = req.body[1].Question2;
-    let a1 = req.body[1].Answer1;
-    let a2 = req.body[1].Answer2;
+    let q1 = req.body[0].Question1;
+    let q2 = req.body[0].Question2;
+    let a1 = req.body[0].Answer1;
+    let a2 = req.body[0].Answer2;
 
     query = DBUtilsAzure.getInsertScript(Constants.usersInsert, [username, password, firstName, lastName, adress, city,
                                                             country, phone, mail, creditCard, isAdmin, q1, q2, a1, a2]);
     DBUtilsAzure.Insert(query).then(function (result) { //insert user's questions and answers
          if (result == true) {
-             let c1 = req.body[2].category1;
-             let c2 = req.body[2].category2;
-             let c3 = req.body[2].category3;
+             let c1 = req.body[0].Category1;
+             let c2 = req.body[0].Category2;
+             let c3 = req.body[0].Category3;
                 categoryQuery = DBUtilsAzure.getInsertScript(Constants.userCategoryInsert, [username, c1, c2, c3]);
                 DBUtilsAzure.Insert(categoryQuery).then(function (result)
                     {
