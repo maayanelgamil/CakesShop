@@ -54,7 +54,19 @@ app.factory('UserService', ['$http', 'localStorageService', '$filter', '$rootSco
                     return Promise.reject(e);
                 });
         }
-    }
+    };
+
+        service.getRecommendedProducts = function(){
+            if(!$rootScope.guest && !$rootScope.recommendedCakes){
+                $http.get('/users/recommandation/' + $rootScope.UserName)
+                    .then(function (res) {
+                        $rootScope.recommendedCakes = res.data;
+                    })
+                    .catch(function (e) {
+                        return Promise.reject(e);
+                    });
+            }
+        };
 
     service.login = function(user) {
         return $http.post('/users/login', user)

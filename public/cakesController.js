@@ -5,6 +5,7 @@ app.controller('cakesController', ['$scope', '$http','localStorageService','User
     let self = this;
 
     UserService.getUserProducts();
+    UserService.getRecommendedProducts();
     /*\$http.get('/cakes/top5')
         .then(function (res) {
             self.top5 = res.data;
