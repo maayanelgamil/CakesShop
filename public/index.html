@@ -33,12 +33,12 @@
             <li class="li"><a class="btn_menu" href="#/about">About</a></li>
         </div>
         <div class="menu" name="registeredUserMenu" ng-hide="$root.guest">
-            <label class="welcomeUser" ng-model="mainCtrl.UserName">Hello {{$root.UserName}}</label>
-            <br/>
-            <label class="welcomeUser" ng-model="mainCtrl.LastLogin">Your last login was in: <br/>{{$root.LastLogin}}</label>
             <li class="li"><a class="btn_menu" href="#/">Home</a></li>
             <li class="li"><a class="btn_menu" href="#/cakes">Cakes</a></li>
             <li class="li"><a class="btn_menu" href="#/about">About</a></li>
+            <br/><br/><br/><br/>
+            <label class="welcomeUser">Hello {{$root.UserName}},</label>
+            <label class="welcomeUser">Your last login was in: {{$root.LastLogin}}</label>
         </div>
         <div ng-view style="order:3"> </div>
     </div>

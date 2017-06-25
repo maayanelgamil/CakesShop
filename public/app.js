@@ -13,10 +13,11 @@ app.controller('mainController', ['$scope', 'UserService', '$location', '$window
 }]);
 
 //-------------------------------------------------------------------------------------------------------------------
-app.factory('UserService', ['$http', 'localStorageService', '$filter', function($http, localStorageService, $filter) {
+app.factory('UserService', ['$http', 'localStorageService', '$filter', '$rootScope',
+    function($http, localStorageService, $filter, $rootScope) {
     let service = {};
 
-    service.initUser = function($rootScope){
+    service.initUser = function(){
         $rootScope.guest = true;
         $rootScope.UserName = '';
         $rootScope.LastLogin = '';
@@ -33,12 +34,26 @@ app.factory('UserService', ['$http', 'localStorageService', '$filter', function(
         }
     };
 
-    service.getNewProducts = function(){
-        return $http.get('cakes//getNewCakes').then(function(response){
-            return Promise.resolve(response);
-        }).catch(function (e) {
-            return Promise.reject(e);
-        });
+    service.getUserProducts = function(){
+        if(!$rootScope.top5){
+            $http.get('/cakes/top5')
+                .then(function (res) {
+                    $rootScope.top5 = res.data;
+
+                    if(!$rootScope.newProducts){
+                        $http.get('/cakes/getNewCakes')
+                            .then(function (res) {
+                                $rootScope.newProducts = res.data;
+                            })
+                            .catch(function (e) {
+                                return Promise.reject(e);
+                            });
+                    }
+                })
+                .catch(function (e) {
+                    return Promise.reject(e);
+                });
+        }
     }
 
     service.login = function(user) {

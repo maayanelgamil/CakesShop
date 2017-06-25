@@ -1,18 +1,11 @@
 
 'use strict';
 //-------------------------------------------------------------------------------------------------------------------
-app.controller('productsController', ['$scope', '$http','localStorageService', '$rootScope', function($scope, $http, localStorageService, $rootScope) {
+app.controller('productsController', ['$scope', '$http','localStorageService', '$rootScope', 'UserService',
+    function($scope, $http, localStorageService, $rootScope, UserService) {
     let self = this;
-    if(!$rootScope.top5){
-        $http.get('/cakes/top5')
-            .then(function (res) {
-                $rootScope.top5 = res.data;
-            })
-            .catch(function (e) {
-                return Promise.reject(e);
-            });
-    }
 
+    UserService.getUserProducts();
 
     $scope.addToCart = function (productName ) {
         alert(productName);

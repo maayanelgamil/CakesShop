@@ -17,7 +17,7 @@ app.controller('loginController', ['$scope', 'UserService', '$location', '$windo
                         var cookieObject = {UserName: self.user.UserName, Date: new Date() }
                         localStorageService.cookie.set('user',cookieObject);
                         alert('You are logged in');
-                        UserService.initUser($rootScope);
+                        UserService.initUser();
                         $location.path('/');
                     }else{
                         alert('Login failed');
