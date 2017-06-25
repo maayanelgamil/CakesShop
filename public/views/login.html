@@ -35,7 +35,7 @@
             </div>
         </div>
         <div ng-show="loginCtrl.restorePswd">
-            <form name="restoreForm" ng-submit="loginCtrl.login(restoreForm.$valid)" novalidate>
+            <form name="restoreForm" ng-submit="loginCtrl.restore()" >
                 <div class="form-group">
                     <label class="logInputHeader">Question #1:</label>
                     <label class="logInputHeader" ng-bind="loginCtrl.questions.Question1" style="color: #101010; font-size: 18px"> </label>
@@ -45,25 +45,21 @@
                            class="form-control logInput"
                            name="answer1Input"
                            placeholder="Enter Answer 1">
-                    <p ng-show="restoreForm.answer1Input.$invalid && !restoreForm.answer1Input.$pristine" class="help-block">Answer 1 is required</p>
-
                 </div>
                 <div class="form-group">
                     <label class="logInputHeader">Question #2:</label>
                     <label class="logInputHeader" ng-bind="loginCtrl.questions.Question2" style="color: #101010; font-size: 18px"> </label>
-                    <input type="password"
+                    <input type="text"
                            ng-model="loginCtrl.answers.Answer2"
                            ng-required="true"
                            class="form-control logInput"
                            name="answer2Input"
                            placeholder="Enter Answer 2">
-                    <p ng-show="restoreForm.answer2Input.$invalid && !restoreForm.answer2Input.$pristine" class="help-block">Answer 2 is required</p>
                 </div>
                 <br>
                 <input type="submit"
                        class="btn btn-success btn-lg logSubmit"
-                       value="Restore Password"
-                       ng-disabled="restoreForm.$invalid">
+                       value="Restore Password">
             </form>
             <div>
                 {{loginCtrl.errorMessage}}

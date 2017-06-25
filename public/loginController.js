@@ -7,7 +7,7 @@ app.controller('loginController', ['$scope', 'UserService', '$location', '$windo
 
         self.user = {UserName: '', Password: ''};
         self.restorePswd = false;
-        self.answers = {Answer1:'', Answer2:''};
+        self.answers = {UserName: '',Answer1:'', Answer2:''};
 
         self.login = function(valid) {
             if (valid) {
@@ -40,6 +40,20 @@ app.controller('loginController', ['$scope', 'UserService', '$location', '$windo
                         return Promise.reject(e);
                     });
             }
+        };
+        self.restore = function () {
+            self.answers.UserName = self.user.UserName;
+            $http.put('/users/restorePassword', self.answers)
+                .then(function(res){
+                        self.password = res.data;
+                        alert('Your password is:'+self.password.Password);
+                        self.restorePswd = false;
+                    },
+                    function(response){
+                        alert('Could not restore your password');
+                    }
+                );
+            
         }
 
 
