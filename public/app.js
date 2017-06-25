@@ -6,16 +6,21 @@ app.config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
 }]);
 
-app.controller('mainController', ['$scope', 'UserService', '$location', '$window', '$http','localStorageService',
-    function($scope, UserService, $location, $window,  $http, localStorageService) {
+app.controller('mainController', ['$scope', 'UserService', '$location', '$window', '$http','localStorageService', '$filter',
+    function($scope, UserService, $location, $window,  $http, localStorageService, $filter) {
+    let self = this;
+    self.UserName = '';
+    self.LastLogin = '';
     self.guest=true;
         if(localStorageService.cookie.isSupported){
             let user = localStorageService.cookie.get('user');
             if(user){
-                let name = user.UserName;
-                let time = user.Date;
-                self.guest=false;
+                self.UserName = user.UserName;
+                self.LastLogin = user.Date;
 
+
+                self.LastLogin = $filter('date')(self.LastLogin, "dd/MM/yyyy");
+                self.guest=false;
             }
         }
 }]);
@@ -23,7 +28,14 @@ app.controller('mainController', ['$scope', 'UserService', '$location', '$window
 //-------------------------------------------------------------------------------------------------------------------
 app.factory('UserService', ['$http', function($http) {
     let service = {};
-    service.isLoggedIn = false;
+
+    service.getNewProducts = function(){
+        return $http.get('cakes//getNewCakes').then(function(response){
+            return Promise.resolve(response);
+        }).catch(function (e) {
+            return Promise.reject(e);
+        });
+    }
 
     service.login = function(user) {
         return $http.post('/users/login', user)
@@ -33,7 +45,6 @@ app.factory('UserService', ['$http', function($http) {
                     'my-Token': token,
                     'user' : user.UserName
                 };
-                service.isLoggedIn = true;
                 return Promise.resolve(response);
             })
             .catch(function (e) {
@@ -56,7 +67,12 @@ app.config( ['$routeProvider', function($routeProvider) {
         .when("/register", {
             templateUrl : "views/register.html",
             controller: "registerController"
-        }).otherwise({
+        }).when("/about", {
+        templateUrl : "views/about.html"
+    }).when("/search", {
+        templateUrl : "views/search.html",
+        controller: "searchController"
+    }).otherwise({
         redirectTo : "/"
     });
 }]);
