@@ -2,7 +2,7 @@
 
 <div ng-controller="productsController as prdctCtrl" class="top5">
     <h1 class="header">Top Five Sellers</h1>
-    <span ng-repeat="p in prdctCtrl.top5" class="container" >
+    <span ng-repeat="p in $root.top5" class="container" >
         <img ng-src="{{p.ImagePath}}" class="imgTop5 image">
         <div class="middle">
             <div class="text">

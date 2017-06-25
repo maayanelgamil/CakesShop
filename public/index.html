@@ -25,17 +25,17 @@
         <img src="images\littlest-cake-shop-logo.gif" class="logo" alt="logo">
     </header>
     <div style="order:2" ng-controller="mainController as mainCtrl">
-        <div class="menu" name="guestMenu" ng-show="mainCtrl.guest">
+        <div class="menu" name="guestMenu" ng-show="$root.guest">
             <li class="li"><a class="btn_menu" href="#/">Home</a></li>
             <li class="li"><a class="btn_menu" href="#/login">Login</a></li>
             <li class="li"><a class="btn_menu" href="#/register">Register</a></li>
             <li class="li"><a class="btn_menu" href="#/cakes">Cakes</a></li>
             <li class="li"><a class="btn_menu" href="#/about">About</a></li>
         </div>
-        <div class="menu" name="registeredUserMenu" ng-hide="mainCtrl.guest">
-            <label class="welcomeUser" ng-model="mainCtrl.UserName">Hello {{mainCtrl.UserName}}</label>
+        <div class="menu" name="registeredUserMenu" ng-hide="$root.guest">
+            <label class="welcomeUser" ng-model="mainCtrl.UserName">Hello {{$root.UserName}}</label>
             <br/>
-            <label class="welcomeUser" ng-model="mainCtrl.LastLogin">Your last login was in: <br/>{{mainCtrl.LastLogin}}</label>
+            <label class="welcomeUser" ng-model="mainCtrl.LastLogin">Your last login was in: <br/>{{$root.LastLogin}}</label>
             <li class="li"><a class="btn_menu" href="#/">Home</a></li>
             <li class="li"><a class="btn_menu" href="#/cakes">Cakes</a></li>
             <li class="li"><a class="btn_menu" href="#/about">About</a></li>
