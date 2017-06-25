@@ -12,7 +12,4 @@ app.controller('cakesController', ['$scope', '$http','localStorageService', func
             return Promise.reject(e);
         });*/
 
-    $scope.addToCart = function (productName ) {
-        alert(productName);
-    };
 }]);

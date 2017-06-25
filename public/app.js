@@ -6,35 +6,54 @@ app.config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
 }]);
 
-app.controller('mainController', ['$scope', 'UserService', '$location', '$window', '$http','localStorageService', '$filter',
-    function($scope, UserService, $location, $window,  $http, localStorageService, $filter) {
+app.controller('mainController', ['$scope', 'UserService', '$location', '$window', '$http','localStorageService', '$filter', '$rootScope',
+    function($scope, UserService, $location, $window,  $http, localStorageService, $filter, $rootScope) {
     let self = this;
-    self.UserName = '';
-    self.LastLogin = '';
-    self.guest=true;
-        if(localStorageService.cookie.isSupported){
-            let user = localStorageService.cookie.get('user');
-            if(user){
-                self.UserName = user.UserName;
-                self.LastLogin = user.Date;
-
-
-                self.LastLogin = $filter('date')(self.LastLogin, "dd/MM/yyyy");
-                self.guest=false;
-            }
-        }
+    UserService.initUser($rootScope);
 }]);
 
 //-------------------------------------------------------------------------------------------------------------------
-app.factory('UserService', ['$http', function($http) {
+app.factory('UserService', ['$http', 'localStorageService', '$filter', '$rootScope',
+    function($http, localStorageService, $filter, $rootScope) {
     let service = {};
 
-    service.getNewProducts = function(){
-        return $http.get('cakes//getNewCakes').then(function(response){
-            return Promise.resolve(response);
-        }).catch(function (e) {
-            return Promise.reject(e);
-        });
+    service.initUser = function(){
+        $rootScope.guest = true;
+        $rootScope.UserName = '';
+        $rootScope.LastLogin = '';
+        if(localStorageService.cookie.isSupported){
+            let user = localStorageService.cookie.get('user');
+            if(user){
+                $rootScope.UserName = user.UserName;
+                $rootScope.LastLogin = user.Date;
+
+
+                $rootScope.LastLogin = $filter('date')($rootScope.LastLogin, "dd/MM/yyyy");
+                $rootScope.guest=false;
+            }
+        }
+    };
+
+    service.getUserProducts = function(){
+        if(!$rootScope.top5){
+            $http.get('/cakes/top5')
+                .then(function (res) {
+                    $rootScope.top5 = res.data;
+
+                    if(!$rootScope.newProducts){
+                        $http.get('/cakes/getNewCakes')
+                            .then(function (res) {
+                                $rootScope.newProducts = res.data;
+                            })
+                            .catch(function (e) {
+                                return Promise.reject(e);
+                            });
+                    }
+                })
+                .catch(function (e) {
+                    return Promise.reject(e);
+                });
+        }
     }
 
     service.login = function(user) {
@@ -57,21 +76,15 @@ app.factory('UserService', ['$http', function($http) {
 app.config( ['$routeProvider', function($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl : "views/home.html",
-            controller : "productsController"
-        })
+            templateUrl : "views/home.html"})
         .when("/login", {
-            templateUrl : "views/login.html",
-            controller : "loginController"
-        })
+            templateUrl : "views/login.html"})
         .when("/register", {
-            templateUrl : "views/register.html",
-            controller: "registerController"
-        }).when("/about", {
+            templateUrl : "views/register.html"
+        }).when("/cakes", {
+        templateUrl : "views/cakes.html"
+    }).when("/about", {
         templateUrl : "views/about.html"
-    }).when("/cakes", {
-        templateUrl : "views/cakes.html",
-        controller: "cakesController"
     }).otherwise({
         redirectTo : "/"
     });

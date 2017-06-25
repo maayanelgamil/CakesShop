@@ -1,8 +1,8 @@
 
 'use strict';
 //-------------------------------------------------------------------------------------------------------------------
-app.controller('loginController', ['$scope', 'UserService', '$location', '$window', '$http','localStorageService',
-    function($scope, UserService, $location, $window,  $http, localStorageService) {
+app.controller('loginController', ['$scope', 'UserService', '$location', '$window', '$http','localStorageService','$rootScope',
+    function($scope, UserService, $location, $window,  $http, localStorageService, $rootScope) {
         let self = this;
 
         self.user = {UserName: '', Password: ''};
@@ -17,6 +17,7 @@ app.controller('loginController', ['$scope', 'UserService', '$location', '$windo
                         var cookieObject = {UserName: self.user.UserName, Date: new Date() }
                         localStorageService.cookie.set('user',cookieObject);
                         alert('You are logged in');
+                        UserService.initUser();
                         $location.path('/');
                     }else{
                         alert('Login failed');
