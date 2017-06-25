@@ -31,7 +31,7 @@ app.controller('registerController', ['$scope', '$location', '$window', '$http',
             if (valid) {
                 $http.post('users/register',self.user).then(function (success) {
                     $window.alert('Register Successfully');
-                    $location.path('/');
+                    $location.path('/login');
                 }, function (error) {
                     self.errorMessage = error.data;
                     $window.alert('register has failed');

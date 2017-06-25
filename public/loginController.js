@@ -1,9 +1,10 @@
 
 'use strict';
 //-------------------------------------------------------------------------------------------------------------------
-app.controller('loginController', ['$scope', '$location', '$window',
-    function($location, $window, $scope) {
+app.controller('loginController', ['$scope', 'localStorageService', 'UserService', '$location', '$window', '$http',
+    function($scope, localStorageService, UserService, $location, $window,  $http) {
         let self = this;
+
         self.user = {UserName: '', Password: ''};
         self.restorePswd = false;
         self.answers = {Answer1:'', Answer2:''};
@@ -11,11 +12,12 @@ app.controller('loginController', ['$scope', '$location', '$window',
 
         self.login = function(valid) {
             if (valid) {
-                UserService.login($scope.user).then(function (success) {
+                UserService.login(self.user).then(function (success) {
                     alert('You are logged in');
+                    localStorageService.set(self.user.UserName, self.user.Password)
                     $location.path('/');
                 }, function (error) {
-                    $scope.errorMessage = error.data;
+                    self.errorMessage = error.data;
                     alert('log-in has failed');
                 })
             }
@@ -30,4 +32,3 @@ app.controller('loginController', ['$scope', '$location', '$window',
         }
 
     }]);
-//-------------------------------------------------------------------------------------------------------------------
