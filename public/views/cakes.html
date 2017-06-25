@@ -1,12 +1,22 @@
 
 
-<div id="main" ng-controller="cakesController">
+<div id="main" ng-controller="cakesController  as cakeCtrl">
     <div class="category"></div>
     <div class="shop"></div>
     <div class="recommended">
-        <h1 class="recHeader">Recommended <br> for &nbsp; you</h1>
+
+            <h1 class="recHeader">Recommended <br> for &nbsp; you</h1>
+            <span ng-repeat="p in $root.top5" class="container" >
+                <img ng-src="{{p.ImagePath}}" class="imgTop5 image" style="margin-left: 3.05em"/>
+                <div class="middle" style="z-index: 1">
+                     <div class="text">
+                        <h1 class="headerText"> {{p.CakeName}}</h1>
+                                                {{p.Description}}
+                        <br>
+                        <h1 class="headerText"> {{p.price}} $ </h1>
+                     </div>
+                </div>
+             </span>
+
     </div>
-
-
-
 </div>

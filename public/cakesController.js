@@ -1,10 +1,11 @@
-/**
- * Created by Maayan on 6/25/2017.
- */
-app.controller('cakesController', ['$scope', '$http','localStorageService', function($scope, $http, localStorageService) {
+
+
+app.controller('cakesController', ['$scope', '$http','localStorageService','UserService',
+    function($scope, $http, localStorageService, UserService) {
     let self = this;
 
-    /*$http.get('/cakes/top5')
+    UserService.getUserProducts();
+    /*\$http.get('/cakes/top5')
         .then(function (res) {
             self.top5 = res.data;
         })
