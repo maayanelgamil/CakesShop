@@ -1,0 +1,46 @@
+#main {
+    min-height: 800px;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-flow: row;
+}
+
+.category {
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 7pt;
+    background-color: rgba(173, 221, 226, 0.78);
+    flex: 3 1 60%;
+    order: 2;
+}
+.shop {
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 7pt;
+    background-color: rgba(173, 221, 226, 0.78);
+    flex: 1 6 20%;
+    order: 1;
+}
+
+.recommended{
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 7pt;
+    background-color: rgba(173, 221, 226, 0.78);
+    flex: 1 6 20%;
+    order: 3;
+}
+
+.recHeader{
+    font-family: 'Acme', sans-serif;
+    display: block;
+    font-size: 36px;
+    color: #fff8fd;
+    text-align: center;
+    text-shadow: rgb(212, 204, 204) 4px 4px 1px;
+    margin-top: 2%;
+}
