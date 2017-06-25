@@ -8,7 +8,7 @@
     <script src="angularScripts/angular-local-storage.min.js"></script>
     <script type="text/javascript" src="./app.js"></script>
     <script type="text/javascript" src="angularScripts/angular-route.js"></script>
-    <script type="text/javascript" src="./searchController.js"></script>
+    <script type="text/javascript" src="./cakesController.js"></script>
     <script type="text/javascript" src="./registerController.js"></script>
     <script type="text/javascript" src="./homeController.js"></script>
     <script type="text/javascript" src="./loginController.js"></script>
@@ -29,7 +29,7 @@
             <li class="li"><a class="btn_menu" href="#/">Home</a></li>
             <li class="li"><a class="btn_menu" href="#/login">Login</a></li>
             <li class="li"><a class="btn_menu" href="#/register">Register</a></li>
-            <li class="li"><a class="btn_menu" href="#/search">Search</a></li>
+            <li class="li"><a class="btn_menu" href="#/cakes">Cakes</a></li>
             <li class="li"><a class="btn_menu" href="#/about">About</a></li>
         </div>
         <div class="menu" name="registeredUserMenu" ng-hide="mainCtrl.guest">
@@ -37,7 +37,7 @@
             <br/>
             <label class="welcomeUser" ng-model="mainCtrl.LastLogin">Your last login was in: <br/>{{mainCtrl.LastLogin}}</label>
             <li class="li"><a class="btn_menu" href="#/">Home</a></li>
-            <li class="li"><a class="btn_menu" href="#/search">Search</a></li>
+            <li class="li"><a class="btn_menu" href="#/cakes">Cakes</a></li>
             <li class="li"><a class="btn_menu" href="#/about">About</a></li>
         </div>
         <div ng-view style="order:3"> </div>

@@ -69,9 +69,9 @@ app.config( ['$routeProvider', function($routeProvider) {
             controller: "registerController"
         }).when("/about", {
         templateUrl : "views/about.html"
-    }).when("/search", {
-        templateUrl : "views/search.html",
-        controller: "searchController"
+    }).when("/cakes", {
+        templateUrl : "views/cakes.html",
+        controller: "cakesController"
     }).otherwise({
         redirectTo : "/"
     });
