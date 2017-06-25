@@ -36,10 +36,11 @@
             <li class="li"><a class="btn_menu" href="#/">Home</a></li>
             <li class="li"><a class="btn_menu" href="#/cakes">Cakes</a></li>
             <li class="li"><a class="btn_menu" href="#/about">About</a></li>
-            <br/><br/><br/><br/>
-            <label class="welcomeUser">Hello {{$root.UserName}},</label>
-            <label class="welcomeUser">Your last login was in: {{$root.LastLogin}}</label>
+            <li class="li"><a class="btn_menu" href="#/about">My Cart</a></li>
         </div>
+        <br/><br/>
+        <label class="welcomeUser">Hello {{$root.UserName}},</label>
+        <label class="welcomeUser">Your last login was in: {{$root.LastLogin}}</label>
         <div ng-view style="order:3"> </div>
     </div>
     <br>
