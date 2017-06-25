@@ -9,7 +9,7 @@ router.post('/register', function (req,res) {     //Add User
     let password = req.body.Password;
     let firstName = req.body.FirstName;
     let lastName = req.body.LastName;
-    let adress = req.body.Adress;
+    let adress = req.body.Address;
     let city = req.body.City;
     let country = req.body.Country;
     let phone = req.body.Phone;
