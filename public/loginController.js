@@ -1,8 +1,8 @@
 
 'use strict';
 //-------------------------------------------------------------------------------------------------------------------
-app.controller('loginController', ['$scope', 'UserService', '$location', '$window', '$http',
-    function($scope, UserService, $location, $window,  $http) {
+app.controller('loginController', ['$scope', 'UserService', '$location', '$window', '$http','localStorageService',
+    function($scope, UserService, $location, $window,  $http, $localStorageService) {
         let self = this;
 
         self.user = {UserName: '', Password: ''};
