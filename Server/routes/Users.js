@@ -86,11 +86,12 @@ router.put('/restorePassword', function (req,res,next) {
     let a2 = req.body.Answer2;
     DBUtilsAzure.Select("Select [Password] from Users Where UserName = '" + name + "' AND Answer1 = '"+ a1 + "' AND Answer2 = '"+ a2 + "'")
         .then(function (result) {
-            if(result[0] == string.empty())
-                res.status(400).send();
-            else
+            if(result.length > 0)
                 res.send(result[0]);
-    }).catch(function(err){ res.status(400).send(err);});
+            else
+                res.status(400).send();
+
+        }).catch(function(err){ res.status(400).send(err);});
 });
 //-------------------------------------------------------------------------------------------------------------------
 router.get('/orders/:name', function (req,res,next) {
