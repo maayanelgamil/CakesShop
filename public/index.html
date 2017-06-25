@@ -23,11 +23,17 @@
     <header style="order:1">
         <img src="images\littlest-cake-shop-logo.gif" class="logo" alt="logo">
     </header>
-    <div style="order:2">
-        <div class="menu">
+    <div style="order:2" ng-controller="mainController as mainCtrl">
+        <div class="menu" name="guestMenu" ng-show="mainCtrl.guest">
             <li class="li"><a class="btn_menu" href="#/">Home</a></li>
             <li class="li"><a class="btn_menu" href="#/login">Login</a></li>
             <li class="li"><a class="btn_menu" href="#/register">Register</a></li>
+            <li class="li"><a class="btn_menu" href="#/search">Search</a></li>
+        </div>
+        <div class="menu" name="registeredUserMenu" ng-hide="mainCtrl.guest">
+            <li class="li"><a class="btn_menu" href="#/">Home</a></li>
+            <li class="li"><a class="btn_menu" href="#/login">Cart</a></li>
+            <li class="li"><a class="btn_menu" href="#/search">Search</a></li>
         </div>
         <div ng-view style="order:3"> </div>
     </div>

@@ -5,6 +5,21 @@ var app = angular.module('CakesShop', [ 'ngRoute', 'LocalStorageModule']);
 app.config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
 }]);
+
+app.controller('mainController', ['$scope', 'UserService', '$location', '$window', '$http','localStorageService',
+    function($scope, UserService, $location, $window,  $http, localStorageService) {
+    self.guest=true;
+        if(localStorageService.cookie.isSupported){
+            let user = localStorageService.cookie.get('user');
+            if(user){
+                let name = user.UserName;
+                let time = user.Date;
+                self.guest=false;
+
+            }
+        }
+}]);
+
 //-------------------------------------------------------------------------------------------------------------------
 app.factory('UserService', ['$http', function($http) {
     let service = {};

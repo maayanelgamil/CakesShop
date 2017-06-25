@@ -2,7 +2,7 @@
 'use strict';
 //-------------------------------------------------------------------------------------------------------------------
 app.controller('loginController', ['$scope', 'UserService', '$location', '$window', '$http','localStorageService',
-    function($scope, UserService, $location, $window,  $http, $localStorageService) {
+    function($scope, UserService, $location, $window,  $http, localStorageService) {
         let self = this;
 
         self.user = {UserName: '', Password: ''};
@@ -14,6 +14,8 @@ app.controller('loginController', ['$scope', 'UserService', '$location', '$windo
                 UserService.login(self.user).then(function (success) {
                     var token = success.data;
                     if (token){
+                        var cookieObject = {UserName: self.user.UserName, Date: new Date() }
+                        localStorageService.cookie.set('user',cookieObject);
                         alert('You are logged in');
                         $location.path('/');
                     }else{

@@ -1,7 +1,7 @@
 
 'use strict';
 //-------------------------------------------------------------------------------------------------------------------
-app.controller('productsController', ['$scope', '$http', function($scope, $http) {
+app.controller('productsController', ['$scope', '$http','localStorageService', function($scope, $http, localStorageService) {
     let self = this;
 
     $http.get('/cakes/top5')
