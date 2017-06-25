@@ -16,17 +16,6 @@ app.controller('registerController', ['$scope', '$location', '$window', '$http',
                 return Promise.reject(e);
             });
 
-        $http.get("countries.xml").then(function (xml) {
-            $(xml).find('Country').each(function () {
-                let country = {
-                ID: $(this).find('ID').text(),
-                Name: $(this).find('Name').text()
-                };
-
-                self.countries.push(country)
-            });
-        });
-
         self.register = function(valid) {
             if (valid) {
                 $http.post('users/register',self.user).then(function (success) {

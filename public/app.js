@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('CakesShop', [ 'ngRoute']);
+var app = angular.module('CakesShop', [ 'ngRoute', 'LocalStorageModule']);
 
 app.config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
