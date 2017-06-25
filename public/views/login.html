@@ -30,9 +30,7 @@
                        value="Login"
                        ng-disabled="loginForm.$invalid">
                 <br>
-                <button ng-click="loginCtrl.restore()" class="logSubmit">
-                    Restore Password
-                </button>
+                <button ng-click="loginCtrl.restore()" class="logSubmit">Restore Password</button>
             </form>
             <div>
                 {{loginCtrl.errorMessage}}
@@ -43,28 +41,28 @@
                 <div class="form-group">
                     <label class="logInputHeader">Question #1</label>
                     <input type="text"
-                           ng-model="loginCtrl.user.UserName"
+                           ng-model="loginCtrl.answers.Answer1"
                            ng-required="true"
                            class="form-control logInput"
-                           name="usernameInput"
+                           name="answer1Input"
                            placeholder="Enter Answer 1">
-                    <p ng-show="restoreForm.usernameInput.$invalid && !restoreForm.usernameInput.$pristine" class="help-block">username is required</p>
+                    <p ng-show="restoreForm.answer1Input.$invalid && !restoreForm.answer1Input.$pristine" class="help-block">Answer 1 is required</p>
 
                 </div>
                 <div class="form-group">
                     <label class="logInputHeader">Question #2</label>
                     <input type="password"
-                           ng-model="loginCtrl.user.Password"
+                           ng-model="loginCtrl.answers.Answer2"
                            ng-required="true"
                            class="form-control logInput"
                            name="answer2Input"
                            placeholder="Enter Answer 2">
-                    <p ng-show="restoreForm.answer2Input.$invalid && !restoreForm.answer2Input.$pristine" class="help-block">Password is required</p>
+                    <p ng-show="restoreForm.answer2Input.$invalid && !restoreForm.answer2Input.$pristine" class="help-block">Answer 2 is required</p>
                 </div>
                 <br>
                 <input type="submit"
                        class="btn btn-success btn-lg logSubmit"
-                       value="Login"
+                       value="Restore Password"
                        ng-disabled="restoreForm.$invalid">
             </form>
             <div>
