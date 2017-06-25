@@ -44,3 +44,10 @@
     text-shadow: rgb(212, 204, 204) 4px 4px 1px;
     margin-top: 2%;
 }
+.ico{
+    color: #101010;
+    float: left;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    padding-left: 0.8em;
+}

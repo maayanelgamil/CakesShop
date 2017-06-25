@@ -97,6 +97,8 @@ app.config( ['$routeProvider', function($routeProvider) {
         templateUrl : "views/cakes.html"
     }).when("/about", {
         templateUrl : "views/about.html"
+    }).when("/cart", {
+        templateUrl : "views/cart.html"
     }).otherwise({
         redirectTo : "/"
     });
