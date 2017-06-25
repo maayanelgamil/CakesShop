@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Cakes Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="images/cakeIcon.png" type="image/x-icon" />
     <script src="angularScripts/angular.js"></script>
     <script src="angularScripts/angular-local-storage.min.js"></script>
-    <script src="angularScripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="./app.js"></script>
     <script type="text/javascript" src="angularScripts/angular-route.js"></script>
     <script type="text/javascript" src="./cakesController.js"></script>
     <script type="text/javascript" src="./registerController.js"></script>
     <script type="text/javascript" src="./homeController.js"></script>
     <script type="text/javascript" src="./loginController.js"></script>
+    <script type="text/javascript" src="./cartController.js"></script>
 
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=">
     <link rel="stylesheet" type="text/css" href="css/home.css" />
@@ -39,7 +40,10 @@
             <li class="li"><a class="btn_menu" href="#/">Home</a></li>
             <li class="li"><a class="btn_menu" href="#/cakes">Cakes</a></li>
             <li class="li"><a class="btn_menu" href="#/about">About</a></li>
-            <li class="li"><a class="btn_menu" href="#/about">My Cart</a></li>
+            <li class="li">
+                <i class="fa fa-shopping-cart ico" ></i>
+                <a class="btn_menu" href="#/cart">My Cart</a>
+            </li>
         </div>
         <br/><br/>
         <label class="welcomeUser">Hello {{$root.UserName}},</label>
