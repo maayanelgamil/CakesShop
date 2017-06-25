@@ -12,8 +12,14 @@ app.controller('loginController', ['$scope', 'UserService', '$location', '$windo
         self.login = function(valid) {
             if (valid) {
                 UserService.login(self.user).then(function (success) {
-                    alert('You are logged in');
-                    $location.path('/');
+                    var token = success.data;
+                    if (token){
+                        alert('You are logged in');
+                        $location.path('/');
+                    }else{
+                        alert('Login failed');
+                    }
+
                 }, function (error) {
                     self.errorMessage = error.data;
                     alert('log-in has failed');

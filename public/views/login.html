@@ -11,8 +11,7 @@
                            class="form-control logInput"
                            name="usernameInput"
                            placeholder="Enter Username">
-                    <p ng-show="loginForm.usernameInput.$invalid && !loginForm.usernameInput.$pristine" class="help-block">username is required</p>
-
+                    <p ng-show="(loginForm.usernameInput.$error.required || loginForm.usernameInput.$pristine)&& loginForm.$submitted" class="help-block">username is required</p>
                 </div>
                 <div class="form-group">
                     <label class="logInputHeader">Password</label>
@@ -22,13 +21,12 @@
                            class="form-control logInput"
                            name="passwordInput"
                            placeholder="Enter Password">
-                    <p ng-show="loginForm.passwordInput.$invalid && !loginForm.passwordInput.$pristine" class="help-block">Password is required</p>
+                    <p ng-show="(loginForm.passwordInput.$error.required || loginForm.passwordInput.$pristine)&& loginForm.$submitted" class="help-block">Password is required</p>
                 </div>
                 <br>
                 <input type="submit"
                        class="btn btn-success btn-lg logSubmit"
-                       value="Login"
-                       ng-disabled="loginForm.$invalid">
+                       value="Login">
                 <br>
                 <button ng-click="loginCtrl.getQuestions()" class="logSubmit">Restore Password</button>
             </form>
