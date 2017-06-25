@@ -18,8 +18,8 @@
                                    placeholder="Enter Username"
                                    ng-minlength="5"
                                    ng-maxlength="10">
-                            <p ng-show="(registerForm.usernameInput.$pristine || registerForm.FirstNameInput.$touched) && registerForm.usernameInput.$error.required && registerForm.$submitted" class="help-block">Username is required</p>
-                            <p ng-show="registerForm.usernameInput.$error.minlength" class="help-block"> Username must contain at least 5 characters</p>
+                            <span ng-show="(registerForm.usernameInput.$pristine || registerForm.FirstNameInput.$touched) && registerForm.usernameInput.$error.required && registerForm.$submitted" class="help-block">Username is required</span>
+                            <span ng-show="registerForm.usernameInput.$error.minlength" class="help-block"> Username must contain at least 5 characters</span>
                             <p ng-show="registerForm.usernameInput.$error.maxlength" class="help-block"> Username must contain at maximum of 10 characters</p>
                         </td>
                         <!-- Credit Card number -->
@@ -27,13 +27,17 @@
                             <label class="InputHeader2">Credit Card number</label>
                         </td>
                         <td>
-                            <input type="text"
+                            <input type="number"
                                    ng-model="regCtrl.user.CreditCardNumber"
                                    class="form-control input"
                                    name="cardInput"
                                    placeholder="Enter Credit Card Number"
+                                   ng-required="true"
+                                   ng-minlength="16"
                                    ng-maxlength="16">
-                            <p ng-show="registerForm.cardInput.$error.maxlength" class="help-block">Credit Card number is too long</p>
+                            <span ng-show="(registerForm.cardInput.$pristine || registerForm.cardInput.$touched) && registerForm.cardInput.$error.required && registerForm.$submitted" class="help-block">Credit card number is required</span>
+                            <p ng-show="registerForm.cardInput.$error.minlength" class="help-block">Credit Card number is too short, should be 16 digits</p>
+                            <p ng-show="registerForm.cardInput.$error.maxlength" class="help-block">Credit Card number is too long, should be 16 digits</p>
                         </td>
                     </tr>
                     <tr id="row_2">
@@ -50,7 +54,7 @@
                                    placeholder="Enter Password"
                                    ng-minlength="3"
                                    ng-maxlength="8">
-                            <p ng-show="(registerForm.passwordInput.$pristine || registerForm.FirstNameInput.$touched) && registerForm.passwordInput.$error.required && registerForm.$submitted" class="help-block">Username is required</p>
+                            <p ng-show="(registerForm.passwordInput.$pristine || registerForm.passwordInput.$touched) && registerForm.passwordInput.$error.required && registerForm.$submitted" class="help-block">Password is required</p>
                             <p ng-show="registerForm.passwordInput.$error.minlength" class="help-block"> Password must contain at least 3 characters</p>
                             <p ng-show="registerForm.passwordInput.$error.maxlength" class="help-block"> Password must contain at maximum of 8 characters</p>
                         </td>
@@ -63,8 +67,10 @@
                                    ng-model="regCtrl.user.Question1"
                                    class="form-control input"
                                    name="q1Input"
+                                   ng-required="true"
                                    placeholder="Enter Question"
                                    ng-maxlength="200">
+                            <p ng-show="(registerForm.q1Input.$pristine || registerForm.q1Input.$touched) && registerForm.q1Input.$error.required && registerForm.$submitted" class="help-block">Question is required</p>
                             <p ng-show="registerForm.q1Input.$error.maxlength" class="help-block">Question is too long</p>
                         </td>
                     </tr>
@@ -93,8 +99,10 @@
                                    ng-model="regCtrl.user.Answer1"
                                    class="form-control input"
                                    name="ans1Input"
+                                   ng-required="true"
                                    placeholder="Enter Answer"
                                    ng-maxlength="200">
+                            <p ng-show="(registerForm.ans1Input.$pristine || registerForm.ans1Input.$touched) && registerForm.ans1Input.$error.required && registerForm.$submitted" class="help-block">Answer is required</p>
                             <p ng-show="registerForm.ans1Input.$error.maxlength" class="help-block">Answer description is too long</p>
                         </td>
                     </tr>
@@ -111,7 +119,7 @@
                                    placeholder="Enter Your Last Name"
                                    ng-required="true"
                                    ng-maxlength="200">
-                            <p ng-show="(registerForm.lastNameInput.$pristine|| registerForm.FirstNameInput.$touched) && registerForm.lastNameInput.$error.required && registerForm.$submitted" class="help-block">Last name is required</p>
+                            <p ng-show="(registerForm.lastNameInput.$pristine|| registerForm.lastNameInput.$touched) && registerForm.lastNameInput.$error.required && registerForm.$submitted" class="help-block">Last name is required</p>
                             <p ng-show="registerForm.lastNameInput.$error.maxlength" class="help-block">Last name is too long</p>
                         </td>
                         <!-- Question2 -->
@@ -123,8 +131,10 @@
                                    ng-model="regCtrl.user.Question2"
                                    class="form-control input"
                                    name="q2Input"
+                                   ng-required="true"
                                    placeholder="Enter Question"
                                    ng-maxlength="200">
+                            <p ng-show="(registerForm.q2Input.$pristine|| registerForm.q2Input.$touched) && registerForm.q2Input.$error.required && registerForm.$submitted" class="help-block">Question is required</p>
                             <p ng-show="registerForm.q2Input.$error.maxlength" class="help-block">Question is too long</p>
                         </td>
                     </tr>
@@ -138,8 +148,10 @@
                                    ng-model="regCtrl.user.Address"
                                    class="form-control input"
                                    name="AddressInput"
+                                   ng-required="true"
                                    placeholder="Enter Address"
                                    ng-maxlength="200">
+                            <p ng-show="(registerForm.AddressInput.$pristine|| registerForm.AddressInput.$touched) && registerForm.AddressInput.$error.required && registerForm.$submitted" class="help-block">Address is required</p>
                             <p ng-show="registerForm.AddressInput.$error.maxlength" class="help-block">Address description is too long</p>
                         </td>
                         <!-- Answer2 -->
@@ -151,8 +163,10 @@
                                    ng-model="regCtrl.user.Answer2"
                                    class="form-control input"
                                    name="ans2Input"
+                                   ng-required="true"
                                    placeholder="Enter Answer"
                                    ng-maxlength="200">
+                            <p ng-show="(registerForm.ans2Input.$pristine|| registerForm.ans2Input.$touched) && registerForm.ans2Input.$error.required && registerForm.$submitted" class="help-block">Answer is required</p>
                             <p ng-show="registerForm.ans2Input.$error.maxlength" class="help-block">Answer description is too long</p>
                         </td>
                     </tr>
@@ -166,8 +180,10 @@
                                    ng-model="regCtrl.user.City"
                                    class="form-control input"
                                    name="CityInput"
+                                   ng-required="true"
                                    placeholder="Enter City"
                                    ng-maxlength="200">
+                            <p ng-show="(registerForm.CityInput.$pristine|| registerForm.CityInput.$touched) && registerForm.CityInput.$error.required && registerForm.$submitted" class="help-block">City is required</p>
                             <p ng-show="registerForm.CityInput.$error.maxlength" class="help-block">City description is too long</p>
                         </td>
                         <!--categories-->
@@ -185,8 +201,10 @@
                                    ng-model="regCtrl.user.Country"
                                    class="form-control input"
                                    name="CountryInput"
+                                   ng-required="true"
                                    placeholder="Enter Country"
                                    ng-maxlength="200">
+                            <p ng-show="(registerForm.CountryInput.$pristine|| registerForm.CountryInput.$touched) && registerForm.CountryInput.$error.required && registerForm.$submitted" class="help-block">Country is required</p>
                             <p ng-show="registerForm.CountryInput.$error.maxlength" class="help-block">Country description is too long</p>
                         </td>
                         <!-- Category1 -->
@@ -201,7 +219,6 @@
                                     ng-required="true">{{category.CategoryName | json}}
                             </select>
                             <p ng-show="(registerForm.c1Input.$pristine|| registerForm.c1Input.$touched) && registerForm.c1Input.$error.required && registerForm.$submitted" class="help-block">Category required</p>
-
                         </td>
                     </tr>
                     <tr id="row_8">
@@ -210,13 +227,17 @@
                             <label class="InputHeader">Phone number</label>
                         </td>
                         <td>
-                            <input type="text"
+                            <input type="number"
                                    ng-model="regCtrl.user.Phone"
                                    class="form-control input"
                                    name="PhoneInput"
                                    placeholder="Enter Phone number"
-                                   ng-maxlength="15">
+                                   ng-minlength="15"
+                                   ng-maxlength="15"
+                                   required>
+                            <p ng-show="(registerForm.PhoneInput.$pristine|| registerForm.PhoneInput.$touched) && registerForm.PhoneInput.$error.required && registerForm.$submitted" class="help-block">Phone number is required</p>
                             <p ng-show="registerForm.PhoneInput.$error.maxlength" class="help-block">Phone number is too long</p>
+                            <p ng-show="registerForm.PhoneInput.$error.minlength" class="help-block">Phone number is too short, shold be 15 digits length</p>
                         </td>
                         <!-- Category2 -->
                         <td>
@@ -239,12 +260,15 @@
                             <label class="InputHeader">E-Mail</label>
                         </td>
                         <td>
-                            <input type="text"
+                            <input type="email"
                                    ng-model="regCtrl.user.Mail"
                                    class="form-control input"
                                    name="MailInput"
                                    placeholder="Enter Mail address"
+                                   ng-required="true"
                                    ng-maxlength="200">
+                            <p ng-show="(registerForm.MailInput.$pristine|| registerForm.MailInput.$touched) && registerForm.MailInput.$error.required && registerForm.$submitted" class="help-block">E-mail address is required</p>
+                            <p ng-show="registerForm.MailInput.$error.email" class="help-block">Mail address is not valid</p>
                             <p ng-show="registerForm.MailInput.$error.maxlength" class="help-block">Mail address is too long</p>
                         </td>
                         <!-- Category3 -->
