@@ -1,20 +1,18 @@
 
 'use strict';
 //-------------------------------------------------------------------------------------------------------------------
-app.controller('loginController', ['$scope', 'localStorageService', 'UserService', '$location', '$window', '$http',
-    function($scope, localStorageService, UserService, $location, $window,  $http) {
+app.controller('loginController', ['$scope', 'UserService', '$location', '$window', '$http',
+    function($scope, UserService, $location, $window,  $http) {
         let self = this;
 
         self.user = {UserName: '', Password: ''};
         self.restorePswd = false;
         self.answers = {Answer1:'', Answer2:''};
-        self.questions = {Question1:'', Question2: ''};
 
         self.login = function(valid) {
             if (valid) {
                 UserService.login(self.user).then(function (success) {
                     alert('You are logged in');
-                    localStorageService.set(self.user.UserName, self.user.Password)
                     $location.path('/');
                 }, function (error) {
                     self.errorMessage = error.data;
@@ -22,13 +20,21 @@ app.controller('loginController', ['$scope', 'localStorageService', 'UserService
                 })
             }
         };
-        self.restore = function () {
+        self.getQuestions = function () {
             if (self.user.UserName === ''){
                 alert('Please enter user name');
             }
             else {
                 self.restorePswd = true;
+                $http.get('/users/questions/' +self.user.UserName)
+                    .then(function (res) {
+                        self.questions = res.data;
+                    })
+                    .catch(function (e) {
+                        return Promise.reject(e);
+                    });
             }
         }
+
 
     }]);
