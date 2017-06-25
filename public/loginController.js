@@ -1,12 +1,13 @@
-/**
- * Created by Maayan on 6/24/2017.
- */
+
 'use strict';
 //-------------------------------------------------------------------------------------------------------------------
 app.controller('loginController', ['$scope', '$location', '$window',
     function($location, $window, $scope) {
         //let self = this;
         $scope.user = {UserName: '', Password: ''};
+        self.restorePswd = false;
+        self.answers = {Answer1:'', Answer2:''};
+        self.questions = {Question1:'', Question2: ''};
 
         $scope.login = function(valid) {
             if (valid) {
@@ -19,5 +20,14 @@ app.controller('loginController', ['$scope', '$location', '$window',
                 })
             }
         };
+        self.restore = function () {
+            if (self.user.UserName === ''){
+                $window.alert('Please enter user name');
+            }
+            else {
+                self.restorePswd = true;
+            }
+        }
+
     }]);
 //-------------------------------------------------------------------------------------------------------------------

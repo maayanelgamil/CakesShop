@@ -1,6 +1,4 @@
-/**
- * Created by Maayan on 6/24/2017.
- */
+
 'use strict';
 app.factory('UserService', ['$http', function($http) {
     let service = {};
