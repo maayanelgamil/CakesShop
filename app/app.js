@@ -88,17 +88,17 @@ app.factory('UserService', ['$http', 'localStorageService', '$filter', '$rootSco
 app.config( ['$routeProvider', function($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl : "views/home.html"})
+            templateUrl : "./components/home/home.html"})
         .when("/login", {
-            templateUrl : "views/login.html"})
+            templateUrl : "./components/login/login.html"})
         .when("/register", {
-            templateUrl : "views/register.html"
+            templateUrl : "./components/register/register.html"
         }).when("/cakes", {
-        templateUrl : "views/cakes.html"
+        templateUrl : "./components/cakes/cakes.html"
     }).when("/about", {
-        templateUrl : "views/about.html"
+        templateUrl : "./shared/about.html"
     }).when("/cart", {
-        templateUrl : "views/cart.html"
+        templateUrl : "./components/cart/cart.html"
     }).otherwise({
         redirectTo : "/"
     });
