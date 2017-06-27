@@ -79,20 +79,16 @@ exports.recommendedCakesScript = function(userName){
 };
 
 exports.recommendedCakesCategory = function (userName) {
-    var query = " select * from [Cakes] where [CakeID] IN" +
-    " (Select distinct [CakeID] From [CakeCategories] Where [CategoryID]IN" +
-    " (Select Category1 as CategoryID From UsersCategories where UserName = '" + userName + "')" +
-    "or [CategoryID]IN"+
-    " (Select Category2 as CategoryID From UsersCategories where UserName = '" + userName + "')" +
-    "or [CategoryID]IN"+
-    "(Select Category3 as CategoryID From UsersCategories where UserName = '" + userName + "'))";
+    var query = "select * from [Cakes] where [Category] IN" +
+    "(Select [Category1] as [Category]  From UsersCategories where UserName = '"+userName+"')"+
+    "OR [Category] IN (Select Category2 as CategoryName From UsersCategories where UserName = '"+userName+"')"+
+    "OR [Category] IN (Select Category3 as CategoryName From UsersCategories where UserName = '"+userName+"')";
     return query;
 
 }
 
 exports.cakesCategories = function(category){
-    var query = "Select * From Cakes Where [CakeID] IN (SELECT CakeID FROM [dbo].[CakeCategories]" +
-    "Where [CategoryID] = " + category + " )";
+    var query = "Select * From Cakes Where [Category] = " + category + " )";
     return query;
 }
 

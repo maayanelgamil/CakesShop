@@ -212,11 +212,11 @@
                             <label class="InputHeader2">Category #1</label>
                         </td>
                         <td>
-                            <select ng-model="regCtrl.user.Category1" ng-options="category.CategoryID as category.CategoryName for category in regCtrl.categories | orderBy:'CategoryName'"
+                            <select ng-model="regCtrl.user.Category1" ng-options="category.CategotyName for category in regCtrl.categories | orderBy:'CategotyName'"
                                     class="form-control input"
                                     name="c1Input"
                                     placeholder="Choose a category you like"
-                                    ng-required="true">{{category.CategoryName | json}}
+                                    ng-required="true">{{category.CategotyName | json}}
                             </select>
                             <p ng-show="(registerForm.c1Input.$pristine|| registerForm.c1Input.$touched) && registerForm.c1Input.$error.required && registerForm.$submitted" class="help-block">Category required</p>
                         </td>
@@ -244,11 +244,11 @@
                             <label class="InputHeader2">Category #2</label>
                         </td>
                         <td>
-                            <select ng-model="regCtrl.user.Category2" ng-options="category.CategoryID as category.CategoryName for category in regCtrl.categories | orderBy:'CategoryName'"
+                            <select ng-model="regCtrl.user.Category2" ng-options="category.CategotyName for category in regCtrl.categories | orderBy:'CategotyName'"
                                     class="form-control input"
                                     name="c2Input"
                                     placeholder="Choose a category you like"
-                                    ng-required="true">{{category.CategoryName | json}}
+                                    ng-required="true">{{category.CategotyName | json}}
                             </select>
                             <p ng-show="(registerForm.c2Input.$pristine|| registerForm.c2Input.$touched) && registerForm.c2Input.$error.required && registerForm.$submitted" class="help-block">Category required</p>
                         </td>
@@ -276,11 +276,11 @@
                             <label class="InputHeader2">Category #3</label>
                         </td>
                         <td>
-                            <select ng-model="regCtrl.user.Category3" ng-options="category.CategoryID as category.CategoryName for category in regCtrl.categories | orderBy:'CategoryName'"
+                            <select ng-model="regCtrl.user.Category3" ng-options="category.CategotyName for category in regCtrl.categories | orderBy:'CategotyName'"
                                     class="form-control input"
                                     name="c3Input"
                                     placeholder="Choose a category you like"
-                                    ng-required="true">{{category.CategoryName | json}}
+                                    ng-required="true">{{category.CategotyName | json}}
                             </select>
                             <p ng-show="(registerForm.c3Input.$pristine|| registerForm.c3Input.$touched) && registerForm.c3Input.$error.required && registerForm.$submitted" class="help-block">Category required</p>
                         </td>

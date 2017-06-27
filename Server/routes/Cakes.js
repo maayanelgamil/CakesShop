@@ -70,8 +70,8 @@ router.get('/top5', function (req,res) {
     }).catch(function(err){ res.status(400).send(err);});
 });
 //-------------------------------------------------------------------------------------------------------------------
-router.get('/byCategory/:categoryId', function (req,res,next) {
-    var category = req.params.categoryId;
+router.get('/byCategory/:categoryName', function (req,res,next) {
+    var category = req.params.categoryName;
     var query = Constants.cakesCategories(category);
     DButilsAzure.Select(query)
         .then(function (result) {
