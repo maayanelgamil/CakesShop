@@ -216,7 +216,7 @@
                                     class="form-control input"
                                     name="c1Input"
                                     placeholder="Choose a category you like"
-                                    ng-required="true">{{category.CategotyName | json}}
+                                    ng-required="true">{{CategotyName | json}}
                             </select>
                             <p ng-show="(registerForm.c1Input.$pristine|| registerForm.c1Input.$touched) && registerForm.c1Input.$error.required && registerForm.$submitted" class="help-block">Category required</p>
                         </td>

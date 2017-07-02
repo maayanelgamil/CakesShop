@@ -46,8 +46,10 @@
             </li>
         </div>
         <br/><br/>
+    <div ng-hide="$root.guest">
         <label class="welcomeUser">Hello {{$root.UserName}},</label>
         <label class="welcomeUser">Your last login was in: {{$root.LastLogin}}</label>
+    </div>
         <div ng-view style="order:3"> </div>
     </div>
     <br>

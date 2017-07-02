@@ -25,9 +25,9 @@ router.post('/register', function (req,res) {     //Add User
                                                             country, phone, mail, creditCard, isAdmin, q1, q2, a1, a2]);
     DBUtilsAzure.Insert(query).then(function (result) { //insert user's questions and answers
          if (result == true) {
-             let c1 = req.body.Category1;
-             let c2 = req.body.Category2;
-             let c3 = req.body.Category3;
+             let c1 = req.body.Category1.CategotyName;
+             let c2 = req.body.Category2.CategotyName;
+             let c3 = req.body.Category3.CategotyName;
                 categoryQuery = DBUtilsAzure.getInsertScript(Constants.userCategoryInsert, [username, c1, c2, c3]);
                 DBUtilsAzure.Insert(categoryQuery).then(function (result)
                     {
