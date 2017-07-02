@@ -97,6 +97,19 @@ body{
     position: relative;
     width: 70%;
 }
+footer {
+    background-color: rgb(241, 237, 237);
+    font-family: Courgette, sans-serif;
+    font-size: 18px;
+    display: block;
+    margin: 4px;
+    padding: 5px;
+    min-height: 3em;
+    border: 1px solid #fff8fd;
+    border-radius: 7pt;
+    text-align: center;
+    margin-top: 10%;
+}
 
 
 .middle {
