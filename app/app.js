@@ -56,7 +56,7 @@ app.factory('UserService', ['$http', 'localStorageService', '$filter', '$rootSco
         }
     };
 
-        service.getRecommendedProducts = function(){
+    service.getRecommendedProducts = function(){
             if(!$rootScope.guest && !$rootScope.recommendedCakes){
                 $http.get('/users/recommandation/' + $rootScope.UserName)
                     .then(function (res) {

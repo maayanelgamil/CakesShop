@@ -10,5 +10,17 @@ app.controller('productsController', ['$scope', '$http','localStorageService', '
     $scope.addToCart = function (productName ) {
         alert(productName);
     };
+
+    self.addToCart = function (cake) {
+        let lsLength = localStorageService.length();
+       let valueStored = localStorageService.get($rootScope.UserName);
+       if (!valueStored){
+           localStorageService.set($rootScope.UserName, [cake]);
+           alert('Cake was added successfully');
+       } else{
+           valueStored.push(cake);
+           localStorageService.set($rootScope.UserName,valueStored);
+       }
+    }
 }]);
 
