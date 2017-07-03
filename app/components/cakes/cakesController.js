@@ -6,12 +6,13 @@ app.controller('cakesController', ['$scope', '$http','localStorageService','User
 
     UserService.getUserProducts();
     UserService.getRecommendedProducts();
-    /*\$http.get('/cakes/top5')
+
+    $http.get('/categories')
         .then(function (res) {
-            self.top5 = res.data;
+            self.categories = res.data;
         })
         .catch(function (e) {
             return Promise.reject(e);
-        });*/
+        });
 
 }]);

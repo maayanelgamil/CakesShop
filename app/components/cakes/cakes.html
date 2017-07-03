@@ -1,7 +1,11 @@
 
 
 <div id="main" ng-controller="cakesController  as cakeCtrl">
-    <div class="category"></div>
+    <div class="category" >
+        <div ng-repeat="category in cakeCtrl.categories">
+           <button class="category_button">{{category.CategotyName}}</button>
+        </div>
+    </div>
     <div class="shop"></div>
     <div class="recommended">
         <div  ng-hide="$root.guest">
