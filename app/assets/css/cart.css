@@ -1,0 +1,28 @@
+.cartDescription {
+    background-color: #fdf1d9;
+    color: #101010;
+    font-size: 16px;
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    display: inline;
+    float: right;
+}
+
+.headerCart{
+    font-size: 18px;
+    font-weight: bold;
+    display: inline;
+}
+
+.cartImg{
+    width: 9em;
+    height: 9em;
+    border: 0.5em solid white;
+    margin-right: 0.05em;
+    margin-left:0.05em;
+    border-radius: 0.2em;
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}

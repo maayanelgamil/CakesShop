@@ -1,16 +1,16 @@
 <div ng-controller="cartController as crtCtrl">
 <h1 class="header">My Cart</h1>
-    <span ng-repeat="p in crtCtrl.cart" class="container" >
-        <img ng-src="{{p.ImagePath}}" class="imgTop5 image"/>
-        <div class="middle">
-            <div class="text">
-               <h1 class="headerText"> {{p.CakeName}}</h1>
+    <span ng-repeat="p in crtCtrl.cart">
+        <img ng-src="{{p.ImagePath}}" class="cartImg image"/>
+
+            <div class="cartDescription">
+               <h1 class="headerCart"> {{p.CakeName}}</h1>
                 {{p.Description}}
                 <br>
-                <h1 class="headerText"> {{p.price}} $ </h1>
+                <h1 class="headerCart"> {{p.price}} $ </h1>
                 <button  ng-click="prdctCtrl.addToCart(p)">add to cart</button>
             </div>
-        </div>
     </span>
+    <br/><br/><br/><br/>
 <button class="logSubmit">Pay</button>
 </div>
