@@ -5,8 +5,6 @@ var Constants = require('../Constants');
 var router = express.Router();
 
 router.get('/', function (req,res,next) {
-    if (!checkLogin(req))
-        res.status(403).send("you are not logged in");
     DButilsAzure.Select('Select * from Cakes').then(function (result) {
         res.send(result).catch(function(err){ res.status(400).send(err);});
     });

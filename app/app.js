@@ -6,8 +6,9 @@ app.config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
 }]);
 
-app.controller('mainController', ['$scope', 'UserService', '$location', '$window', '$http','localStorageService', '$filter', '$rootScope',
-    function($scope, UserService, $location, $window,  $http, localStorageService, $filter, $rootScope) {
+app.controller('mainController', ['$scope', 'UserService', '$location', '$window', '$http','localStorageService',
+    '$filter', '$rootScope', 'cakesService',
+    function($scope, UserService, $location, $window,  $http, localStorageService, $filter, $rootScope, cakesService) {
     let self = this;
     UserService.initUser($rootScope);
 }]);
