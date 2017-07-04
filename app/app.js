@@ -25,12 +25,19 @@ app.factory('UserService', ['$http', 'localStorageService', '$filter', '$rootSco
         if(localStorageService.cookie.isSupported){
             let user = localStorageService.cookie.get('user');
             if(user){
-                $rootScope.UserName = user.UserName;
+                $rootScope.UserName = user.UserName; // extract cookie data
                 $rootScope.LastLogin = user.Date;
 
+                $http.defaults.headers.common = {                  //use the token for the user requets
+                    'my-Token': user.Token,
+                    'user' : user.UserName
+                };
 
-                $rootScope.LastLogin = $filter('date')($rootScope.LastLogin, "dd/MM/yyyy");
-                $rootScope.guest=false;
+                $rootScope.guest=false;                 //update that this is not a guest
+
+                //update the cookie for the new login time!
+                var cookieObject = {UserName: user.UserName, Date: new Date(), Token: user.Token }
+                localStorageService.cookie.set('user',cookieObject);
             }
         }
     };

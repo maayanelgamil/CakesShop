@@ -12,7 +12,6 @@ app.controller('productsController', ['$scope', '$http','localStorageService', '
     };
 
     self.addToCart = function (cake) {
-        let lsLength = localStorageService.length();
        let valueStored = localStorageService.get($rootScope.UserName);
        if (!valueStored){
            localStorageService.set($rootScope.UserName, [cake]);

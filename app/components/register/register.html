@@ -11,6 +11,7 @@
                         </td>
                         <td>
                             <input type="text"
+                                   ng-pattern="/^[a-zA-Z]*$/"
                                    ng-model="regCtrl.user.UserName"
                                    ng-required="true"
                                    class="form-control input"
@@ -18,8 +19,9 @@
                                    placeholder="Enter Username"
                                    ng-minlength="5"
                                    ng-maxlength="10">
-                            <span ng-show="(registerForm.usernameInput.$pristine || registerForm.FirstNameInput.$touched) && registerForm.usernameInput.$error.required && registerForm.$submitted" class="help-block">Username is required</span>
+                            <span ng-show="(registerForm.usernameInput.$pristine || registerForm.usernameInput.$touched) && registerForm.usernameInput.$error.required && registerForm.$submitted" class="help-block">Username is required</span>
                             <span ng-show="registerForm.usernameInput.$error.minlength" class="help-block"> Username must contain at least 5 characters</span>
+                            <p ng-show="registerForm.usernameInput.$error.pattern">User name should contain letters only!</p>
                             <p ng-show="registerForm.usernameInput.$error.maxlength" class="help-block"> Username must contain at maximum of 10 characters</p>
                         </td>
                         <!-- Credit Card number -->
@@ -81,6 +83,7 @@
                         </td>
                         <td>
                             <input type="text"
+                                   ng-pattern="/^[a-zA-Z]*$/"
                                    ng-model="regCtrl.user.FirstName"
                                    class="form-control input"
                                    name="FirstNameInput"
@@ -89,6 +92,7 @@
                                    ng-maxlength="200">
                             <p ng-show="(registerForm.FirstNameInput.$pristine || registerForm.FirstNameInput.$touched) && registerForm.FirstNameInput.$error.required && registerForm.$submitted" class="help-block">First name is required</p>
                             <p ng-show="registerForm.FirstNameInput.$error.maxlength" class="help-block">First name is too long</p>
+                            <p ng-show="registerForm.FirstNameInput.$error.pattern">First name should contain letters only!</p>
                         </td>
                         <!-- Answer1 -->
                         <td>
