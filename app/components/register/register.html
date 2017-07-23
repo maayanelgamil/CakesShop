@@ -201,15 +201,15 @@
                             <label class="InputHeader">Country</label>
                         </td>
                         <td>
-                            <input type="text"
+                            <select type="text"
                                    ng-model="regCtrl.user.Country"
                                    class="form-control input"
+                                   ng-options="country.Name for country  in regCtrl.Countries"
                                    name="CountryInput"
                                    ng-required="true"
-                                   placeholder="Enter Country"
-                                   ng-maxlength="200">
+                                   placeholder="Choose a country from the list"
+                                   />
                             <p ng-show="(registerForm.CountryInput.$pristine|| registerForm.CountryInput.$touched) && registerForm.CountryInput.$error.required && registerForm.$submitted" class="help-block">Country is required</p>
-                            <p ng-show="registerForm.CountryInput.$error.maxlength" class="help-block">Country description is too long</p>
                         </td>
                         <!-- Category1 -->
                         <td>
@@ -248,7 +248,8 @@
                             <label class="InputHeader2">Category #2</label>
                         </td>
                         <td>
-                            <select ng-model="regCtrl.user.Category2" ng-options="category.CategotyName for category in regCtrl.categories | orderBy:'CategotyName'"
+                            <select ng-model="regCtrl.user.Category2"
+                                    ng-options="category.CategotyName for category in regCtrl.categories | orderBy:'CategotyName'"
                                     class="form-control input"
                                     name="c2Input"
                                     placeholder="Choose a category you like"

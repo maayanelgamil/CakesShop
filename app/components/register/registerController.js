@@ -38,7 +38,7 @@ app.controller('registerController', ['$scope', '$location', '$window', '$http',
                     findCountries(this);
                 }
             };
-            xmlhttp.open("GET", "countries.xml", true);
+            xmlhttp.open("GET", "../../shared/countries.xml", true);
             xmlhttp.send();
         }
         function findCountries(xml) {
@@ -52,7 +52,6 @@ app.controller('registerController', ['$scope', '$location', '$window', '$http',
                 temp.push(json);
             }
             self.Countries = temp;
-            self.selectedCountry = self.Countries[4];
         }
 
     }]);
