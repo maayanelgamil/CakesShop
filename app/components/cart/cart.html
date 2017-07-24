@@ -8,9 +8,10 @@
                 {{p.Description}}
                 <br>
                 <h1 class="headerCart"> {{p.price}} $ </h1>
-                <button  ng-click="prdctCtrl.addToCart(p)">add to cart</button>
+                <button  ng-click="crtCtrl.remove(p)">Remove from cart</button>
             </div>
     </span>
     <br/><br/><br/><br/>
-<button class="logSubmit">Pay</button>
+    <label ng-model="crtCtrl.totalAmount"></label>
+<button class="logSubmit" ng-click="crtCtrl.pay()">Pay</button>
 </div>
