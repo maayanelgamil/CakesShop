@@ -17,8 +17,11 @@ app.controller('productsController', ['$scope', '$http','localStorageService', '
            localStorageService.set($rootScope.UserName, [cake]);
            alert('Cake was added successfully');
        } else{
-           valueStored.push(cake);
-           localStorageService.set($rootScope.UserName,valueStored);
+           var exist = valueStored.indexOf(cake);
+           if(exist === 'undefined'){ // verify that the cake is not already in the cart
+               valueStored.push(cake);
+               localStorageService.set($rootScope.UserName,valueStored);
+           }
        }
     }
 }]);

@@ -9,7 +9,14 @@ app.controller('cartController', ['$scope', '$http','localStorageService', '$roo
         self.remove = function (cake) {
             let index = self.cart.indexOf(cake);
             self.cart.splice(index,1);
+            localStorageService.set($rootScope.UserName, self.cart);
         };
+
+        self.CakeAmount = function(cake){
+            if(!cake.Amount) {
+                cake.Amount = 1;
+            }
+        }
 
         self.pay = function(){
             var order =
@@ -21,5 +28,13 @@ app.controller('cartController', ['$scope', '$http','localStorageService', '$roo
             };
             $http.post('/addOrder', )
         };
+
+        self.getTotal = function () {
+            var total = 0;
+            for(var i=0; i<self.cart.length; i++){
+                total += self.cart[i].price;
+            }
+            return total;
+        }
     }]);
 
