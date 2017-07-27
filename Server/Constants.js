@@ -1,6 +1,4 @@
-/**
- * Created by Maayan on 6/1/2017.
- */
+
 
 exports.usersInsert = "INSERT INTO [Users]"+
     "([UserName]"+
@@ -88,7 +86,7 @@ exports.recommendedCakesCategory = function (userName) {
 }
 
 exports.cakesCategories = function(category){
-    var query = "Select * From Cakes Where [Category] = " + category + " )";
+    var query = "Select * From Cakes Where [Category] = " + category ;
     return query;
 }
 

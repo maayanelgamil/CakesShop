@@ -80,6 +80,13 @@
     color: #f58fa9;
     box-shadow: 0.1em 0.1em 12px #a29e9e
 }
+
+.category_button:active{
+    background-color: #e1e1e1 !important;
+    font-size: 1.32em;
+    color: #f58fa9;
+    box-shadow: 0.1em 0.1em 12px #a29e9e
+}
 .logo2 {
     position: inherit;
     left: 50%;
@@ -149,4 +156,26 @@
 }
 .addToCart_btn:hover {
     background-color: #ffc1c6;
+}
+
+
+.header_content{
+   color: white;
+    font-family: Courgette, sans-serif;
+    font-size: 2.5em;
+    display: block;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.sortBy{
+    float: right;
+    margin-top: 0.5em;
+    margin-right: 0.3em;
+}
+.selectSort{
+    float: right;
+    margin-right: 0.7em;
+    margin-top: 0.5em;
+    width: 9em;
 }

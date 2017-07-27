@@ -6,12 +6,20 @@
             <img src="assets\images\littlest-cake-shop-logo.gif" class="logo2" alt="logo">
         </div>
         <div ng-repeat="category in cakeCtrl.categories">
-           <button class="category_button">{{category.CategotyName}}</button>
+           <button ng-click="cakeCtrl.selectCategory(category.CategotyName)" class="category_button">{{category.CategotyName}}</button>
         </div>
+        <button ng-click="cakeCtrl.selectAll()" ng-hide="cakeCtrl.showAll" class="category_button">All Cakes</button>
     </div>
     <div class="shop">
-        <div></div>
-        <div ng-repeat="p in $root.allCakes" class="product_description" >
+        <div style="height: 6.8em">
+            <select class = "selectSort" ng-model="ctrl.orderBy"
+                    ng-options="c as c for c in cakeCtrl.sortedOptions"></select>
+            <label class="sortBy">Sort By:</label>
+            <input class="selectSort" type="text" ng-model="storeCtrl.filterBy">
+            <label class="sortBy">Search</label>
+            <label class="header_content">• • {{cakeCtrl.categoryHeader}} • •</label>
+        </div>
+        <div ng-repeat="p in cakeCtrl.cakes" class="product_description" >
             <img ng-src="{{p.ImagePath}}" class="img_product"/>
             <div class="description">
                 <label class="price"> {{p.price}} $ </label>
