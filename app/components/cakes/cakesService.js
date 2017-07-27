@@ -1,6 +1,4 @@
-/**
- * Created by Maayan on 7/3/2017.
- */
+
 app.factory('cakesService', ['$http', 'localStorageService', '$filter', '$rootScope',
     function($http, localStorageService, $filter, $rootScope) {
         let service = {};

@@ -51,9 +51,14 @@ body{
 
 }
 .btn_menu:hover{
-    background-color: #faf3f8;
+    background-color: #e6e1e1 !important;
+    color: #f58fa9;
+    border-color: white;
 }
 
+.li:hover {
+    border: 3px solid #94d6bc;
+}
 .header{
     font-family: 'Acme', sans-serif;
     display: block;
@@ -151,3 +156,24 @@ footer {
     text-align: center;
     position: static;
 }
+
+.addToCart_button {
+    background-color: #f58fa9;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #ffffff;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 0.8em;
+    padding: 0.4em 1em;
+    text-decoration: none;
+    font-weight: bold;
+}
+.addToCart_button:hover {
+    background-color: #ffc1c6;
+}
+
+
+
