@@ -1,7 +1,7 @@
 #main {
     min-height: 800px;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     display: flex;
     flex-flow: row;
 }
