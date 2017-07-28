@@ -83,10 +83,10 @@ exports.recommendedCakesCategory = function (userName) {
     "OR [Category] IN (Select Category3 as CategoryName From UsersCategories where UserName = '"+userName+"')";
     return query;
 
-}
+};
 
 exports.cakesCategories = function(category){
-    var query = "Select * From Cakes Where [Category] = " + category ;
+    var query = "Select * From Cakes Where [Category] = '" + category + "'";
     return query;
-}
+};
 
