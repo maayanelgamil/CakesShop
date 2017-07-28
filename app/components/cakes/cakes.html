@@ -12,14 +12,15 @@
     </div>
     <div class="shop">
         <div style="height: 6.8em">
-            <select class = "selectSort" ng-model="ctrl.orderBy"
-                    ng-options="c as c for c in cakeCtrl.sortedOptions"></select>
+            <select class = "selectSort" ng-model="cakeCtrl.orderBy"
+                    ng-options="c as c.name for c in cakeCtrl.sortedOptions"></select>
             <label class="sortBy">Sort By:</label>
-            <input class="selectSort" type="text" ng-model="storeCtrl.filterBy">
+            <input class="selectSort" type="text" ng-model="cakeCtrl.filterBy">
             <label class="sortBy">Search</label>
             <label class="header_content">• • {{cakeCtrl.categoryHeader}} • •</label>
         </div>
-        <div ng-repeat="p in cakeCtrl.cakes" class="product_description" >
+        <div ng-repeat="p in cakeCtrl.cakes | filter : cakeCtrl.filterBy|
+                        orderBy:cakeCtrl.orderBy.label:cakeCtrl.orderBy.reverse" class="product_description" >
             <img ng-src="{{p.ImagePath}}" class="img_product"/>
             <div class="description">
                 <label class="price"> {{p.price}} $ </label>

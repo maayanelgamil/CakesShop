@@ -6,8 +6,11 @@ app.controller('cakesController', ['$scope', '$http','localStorageService','User
 
         self.categoryHeader = "All Cakes";
         self.showAll = true;
-        self.sortedOptions = ['Cake name', 'Price - high to low', 'Price - low to high'];
+        self.sortedOptions =[ { name:'Cake name', label:'CakeName', reverse:false},
+                              { name:'Price - low to high', label:'price', reverse:false},
+                              { name:'Price - high to low', label:'price', reverse:true}];
         self.filterBy = "";
+        self.orderBy = "";
         self.reverseSort = false;
 
 
@@ -34,12 +37,14 @@ app.controller('cakesController', ['$scope', '$http','localStorageService','User
             self.categoryHeader = categoryName;
             $http.get('/cakes/byCategory/'+categoryName).then(function (res) {
                 self.cakes = res.data;
-            })
+            });
+            self.orderBy = "";
         };
 
         self.selectAll = function () {
             self.showAll = true;
             self.categoryHeader = "All Cakes";
             self.cakes = $rootScope.allCakes;
+            self.orderBy ="";
         }
     }]);

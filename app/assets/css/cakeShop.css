@@ -1,7 +1,7 @@
 #main {
     min-height: 800px;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-flow: row;
 }
@@ -172,10 +172,12 @@
     float: right;
     margin-top: 0.5em;
     margin-right: 0.3em;
+    color: white;
+    font-weight: bold;
 }
 .selectSort{
     float: right;
     margin-right: 0.7em;
     margin-top: 0.5em;
-    width: 9em;
+    width: 10em;
 }
