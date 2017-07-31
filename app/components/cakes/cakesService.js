@@ -2,6 +2,7 @@
 app.factory('cakesService', ['$http', 'localStorageService', '$filter', '$rootScope',
     function($http, localStorageService, $filter, $rootScope) {
         let service = {};
+        service.cakes = [];
 
         service.getRecommendedProducts = function(){
              return $http.get('/users/recommandation/' + $rootScope.UserName)
@@ -19,6 +20,7 @@ app.factory('cakesService', ['$http', 'localStorageService', '$filter', '$rootSc
                 .then(function (res) {
                     $rootScope.allCakes = res.data;
                     Promise.resolve(res.data);
+                    service.cakes = res.data;
                 })
                 .catch(function (e) {
                     return Promise.reject(e);

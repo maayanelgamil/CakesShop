@@ -16,16 +16,15 @@ app.controller('cakesController', ['$scope', '$http','localStorageService','User
         $http.get('/categories') // get categories
             .then(function (res) {
                 self.categories = res.data;
-                /*if(!$rootScope.guest && !$rootScope.allCakes) {
+                if(!$rootScope.guest && cakesService.cakes.length == 0) {
                     cakesService.getRecommendedProducts() // gets all the recommended cakes
-                        .then(cakesService.allCakes()); // now all the cakes are save in $root.allCakes !
-                }*/
-                if(!$rootScope.allCakes){
-                    cakesService.allCakes().then(function () {
-                    self.cakes = $rootScope.allCakes;
-                    });
+                        .then(function(result){
+                            cakesService.allCakes()
+                            .then(function(){
+                                self.cakes = cakesService.cakes;
+                            })
+                        }); // now all the cakes are save in cakeService.cakes !
                 }
-
             })
             .catch(function (e) {
                 return Promise.reject(e);
@@ -43,7 +42,7 @@ app.controller('cakesController', ['$scope', '$http','localStorageService','User
         self.selectAll = function () {
             self.showAll = true;
             self.categoryHeader = "All Cakes";
-            self.cakes = $rootScope.allCakes;
+            self.cakes = cakesService.cakes;
             self.orderBy ="";
         }
     }]);
