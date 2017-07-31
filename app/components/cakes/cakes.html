@@ -29,7 +29,7 @@
                 <label class="content_description">{{p.Description}}</label>
             </div >
             <div class="">
-                <button class="addToCart_btn" ng-click="prdctCtrl.addToCart(p)">add to cart</button>
+                <button class="addToCart_btn" ng-click="cakeCtrl.addToCart(p)">add to cart</button>
             </div>
         </div>
     </div>
@@ -44,6 +44,7 @@
                                                 {{p.Description}}
                         <br>
                         <h1 class="headerText"> {{p.price}} $ </h1>
+                         <button class="addToCart_button" ng-click="cakeCtrl.addToCart(p)">add to cart</button>
                      </div>
                 </div>
              </span>
