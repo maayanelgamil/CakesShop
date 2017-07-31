@@ -1,4 +1,3 @@
-
 'use strict';
 //-------------------------------------------------------------------------------------------------------------------
 app.controller('productsController', ['$scope', '$http','localStorageService', '$rootScope', 'UserService',
@@ -7,10 +6,6 @@ app.controller('productsController', ['$scope', '$http','localStorageService', '
 
     UserService.getUserProducts();
 
-    $scope.addToCart = function (productName ) {
-        alert(productName);
-    };
-
     self.addToCart = function (cake) {
        let valueStored = localStorageService.get($rootScope.UserName);
        if (!valueStored){
@@ -18,7 +13,8 @@ app.controller('productsController', ['$scope', '$http','localStorageService', '
            alert('Cake was added successfully');
        } else{
            var exist = valueStored.indexOf(cake);
-           if(exist === 'undefined'){ // verify that the cake is not already in the cart
+           if(exist === 'undefined' || exist === -1 ){ // verify that the cake is not already in the cart
+               cake.Amount = 1;
                valueStored.push(cake);
                localStorageService.set($rootScope.UserName,valueStored);
            }

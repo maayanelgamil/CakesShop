@@ -13,7 +13,6 @@ app.controller('cakesController', ['$scope', '$http','localStorageService','User
         self.orderBy = "";
         self.reverseSort = false;
 
-
         $http.get('/categories') // get categories
             .then(function (res) {
                 self.categories = res.data;

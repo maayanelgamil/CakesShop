@@ -32,7 +32,7 @@ app.controller('cartController', ['$scope', '$http','localStorageService', '$roo
         self.getTotal = function () {
             var total = 0;
             for(var i=0; i<self.cart.length; i++){
-                total += self.cart[i].price;
+                total += self.cart[i].price * self.cart[i].Amount ;
             }
             return total;
         }

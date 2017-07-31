@@ -1,17 +1,21 @@
 <div ng-controller="cartController as crtCtrl">
 <h1 class="header">My Cart</h1>
-    <span ng-repeat="p in crtCtrl.cart">
-        <img ng-src="{{p.ImagePath}}" class="cartImg image"/>
-        <div class="cartDescription">
-            <h1 class="headerCart"> {{p.CakeName}}</h1>
-            {{p.Description}}
-            <br>
-            <h1 class="headerCart"> {{p.price}} $ </h1>
-            <button  ng-click="crtCtrl.remove(p)">Remove from cart</button>
+    <div class="shop">
+    <span ng-repeat="p in crtCtrl.cart" class="product_description">
+        <img ng-src="{{p.ImagePath}}" class="img_product"/>
+        <div class="description">
+            <label class="price"> {{p.price}} $ </label>
+            <label class="header_description"> {{p.CakeName}}</label>
+            </br>
+            <label class="content_description">{{p.Description}}</label>
+            </div >
             <input type="number" ng-model="p.Amount" ng-change="crtCtrl.CakeAmount(p)" min="1">
-        </div>
+            <div class="">
+                <button  class="addToCart_btn" ng-click="crtCtrl.remove(p)">Remove from cart</button>
+            </div>
     <br/>
     </span>
+    </div>
     <br/><br/><br/><br/>
     <label>Total amouont: {{ crtCtrl.getTotal()}}</label>
     <br/>
