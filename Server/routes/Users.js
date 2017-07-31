@@ -122,7 +122,7 @@ router.delete('/deleteFromCart', function (req,res) {
     }).catch(function(err){ res.status(400).send(err);});
 });
 //-------------------------------------------------------------------------------------------------------------------
-router.get('/recommandation/:name', function (req,res) {
+router.get('/recommandation/logged/:name', function (req,res) {
     var name = req.params.name;
     var query = Constants.recommendedCakesScript(name);
     DBUtilsAzure.Select(query).then(function (result) {

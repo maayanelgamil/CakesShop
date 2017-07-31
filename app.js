@@ -23,6 +23,15 @@ app.use(express.static(path.join(__dirname, 'app')));
 
 //app.use(express.logger('dev')); // This line is what turns on the server logger in the terminal.
 
+app.use('*/logged/*', function (req, res, next) {
+    console.log('Yeaaahhhhh');
+     /*if(checkLogin(req)){
+         next();
+     }else{
+         res.status(403).send("Unauthorized user");
+     }*/
+
+});
 //The following is what sets the port of your local app, feel free to change that if needed.
 app.use('/users', users);
 app.use('/cakes', cakes);
@@ -40,9 +49,22 @@ app.use(function(err, req, res) {
     res.status(403).send({ error: err });
 });
 
+
 app.listen(3000, function() {
     console.log('I am listening on localhost:3000');
     // server is open and listening on port 3000, to access: localhost:3000 in any browser.
 });
+
+function checkLogin(req) {
+    let token = req.headers["my-token"];
+    let user = req.headers["user"];
+    if (!token || !user)
+        return false;
+    let validToken = req.app.locals.users[user];
+    if (validToken == token)
+        return true;
+    else
+        return false;
+}
 
 module.exports = app;
