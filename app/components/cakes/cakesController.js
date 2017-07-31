@@ -1,7 +1,7 @@
 
 
-app.controller('cakesController', ['$scope', '$http','localStorageService','UserService', 'cakesService', '$rootScope',
-    function($scope, $http, localStorageService, UserService, cakesService, $rootScope) {
+app.controller('cakesController', ['$scope', '$http','localStorageService','UserService', 'cakesService', '$rootScope','cartService',
+    function($scope, $http, localStorageService, UserService, cakesService, $rootScope, cartService) {
         let self = this;
 
         self.categoryHeader = "All Cakes";
@@ -16,15 +16,13 @@ app.controller('cakesController', ['$scope', '$http','localStorageService','User
         $http.get('/categories') // get categories
             .then(function (res) {
                 self.categories = res.data;
-                if(!$rootScope.guest && cakesService.cakes.length == 0) {
-                    cakesService.getRecommendedProducts() // gets all the recommended cakes
-                        .then(function(result){
-                            cakesService.allCakes()
-                            .then(function(){
-                                self.cakes = cakesService.cakes;
-                            })
-                        }); // now all the cakes are save in cakeService.cakes !
-                }
+                cakesService.allCakes()
+                    .then(function(){
+                        self.cakes = cakesService.cakes; // now all the cakes are save in cakeService.cakes !
+                        if(!$rootScope.guest) {
+                            cakesService.getRecommendedProducts();  // gets all the recommended cakes
+                         }
+                    })
             })
             .catch(function (e) {
                 return Promise.reject(e);
@@ -44,5 +42,10 @@ app.controller('cakesController', ['$scope', '$http','localStorageService','User
             self.categoryHeader = "All Cakes";
             self.cakes = cakesService.cakes;
             self.orderBy ="";
+        };
+
+        self.addToCart = function (cake) {
+            cartService.addToCart(cake);
         }
+
     }]);

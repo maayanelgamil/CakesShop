@@ -12,13 +12,13 @@
         <br/>
             <input type="number" ng-model="p.Amount" ng-change="crtCtrl.CakeAmount(p)" min="1">
             <div class="">
-                <button  class="addToCart_btn" ng-click="crtCtrl.remove(p)">Remove from cart</button>
+                <button  class="addToCart_btn" ng-click="crtCtrl.remove(p)" style="margin-left: 4em;">Remove from cart</button>
             </div>
     <br/>
     </span>
     </div>
     <br/><br/><br/><br/>
-    <label>Total amouont: {{ crtCtrl.getTotal()}}</label>
+    <label class="amount">Total amouont: {{ crtCtrl.getTotal() | currency}}</label>
     <br/>
 <button class="logSubmit" ng-click="crtCtrl.pay()">Pay</button>
 </div>
