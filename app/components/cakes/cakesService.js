@@ -5,7 +5,7 @@ app.factory('cakesService', ['$http', 'localStorageService', '$filter', '$rootSc
         service.cakes = [];
 
         service.getRecommendedProducts = function(){
-             return $http.get('/users/recommandation/' + $rootScope.UserName)
+             return $http.get('/users/recommandation/logged/' + $rootScope.UserName)
                     .then(function (res) {
                         $rootScope.recommendedCakes = res.data;
                         Promise.resolve(res.data);
