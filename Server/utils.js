@@ -13,13 +13,11 @@ var config = {
     options: {encrypt: true, database: 'mk_db'}
 };
 
-var connection;
-
 exports.Select = function(query) {
   return new Promise(function(resolve,reject) {
       var ans = [];
       var properties = [];
-      connection = new Connection(config);
+      var connection = new Connection(config);
       connection.on('connect', function(err) {
           if (err) {
               console.error('error connecting: ' + err.message);
@@ -60,7 +58,7 @@ exports.Select = function(query) {
 
 exports.Insert= function(query) {
     return new Promise(function(resolve,reject) {
-        connection = new Connection(config);
+        var connection = new Connection(config);
         connection.on('connect', function(err) {
             if (err) {
                 console.error('error connecting: ' + err.message);
