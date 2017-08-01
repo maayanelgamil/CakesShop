@@ -17,12 +17,12 @@
                                    class="form-control input"
                                    name="usernameInput"
                                    placeholder="Enter Username"
-                                   ng-minlength="5"
-                                   ng-maxlength="10">
+                                   ng-minlength="3"
+                                   ng-maxlength="8">
                             <span ng-show="(registerForm.usernameInput.$pristine || registerForm.usernameInput.$touched) && registerForm.usernameInput.$error.required && registerForm.$submitted" class="help-block">Username is required</span>
-                            <span ng-show="registerForm.usernameInput.$error.minlength" class="help-block"> Username must contain at least 5 characters</span>
+                            <span ng-show="registerForm.usernameInput.$error.minlength" class="help-block"> Username must contain at least 3 characters</span>
                             <p ng-show="registerForm.usernameInput.$error.pattern">User name should contain letters only!</p>
-                            <p ng-show="registerForm.usernameInput.$error.maxlength" class="help-block"> Username must contain at maximum of 10 characters</p>
+                            <p ng-show="registerForm.usernameInput.$error.maxlength" class="help-block"> Username must contain at maximum of 8 characters</p>
                         </td>
                         <!-- Credit Card number -->
                         <td>
@@ -54,11 +54,13 @@
                                    class="form-control input"
                                    name="passwordInput"
                                    placeholder="Enter Password"
-                                   ng-minlength="3"
-                                   ng-maxlength="8">
+                                   ng-minlength="5"
+                                   ng-maxlength="10">
                             <p ng-show="(registerForm.passwordInput.$pristine || registerForm.passwordInput.$touched) && registerForm.passwordInput.$error.required && registerForm.$submitted" class="help-block">Password is required</p>
-                            <p ng-show="registerForm.passwordInput.$error.minlength" class="help-block"> Password must contain at least 3 characters</p>
-                            <p ng-show="registerForm.passwordInput.$error.maxlength" class="help-block"> Password must contain at maximum of 8 characters</p>
+                            <p ng-show="registerForm.passwordInput.$error.minlength" class="help-block"> Password must contain at least 5 characters</p>
+                            <p ng-show="registerForm.passwordInput.$error.maxlength" class="help-block"> Password must contain at maximum of 10 characters</p>
+                            <p ng-show="registerForm.passwordInput.$error.pattern">Password should contain letters and numbers.</p>
+
                         </td>
                         <!-- Question1 -->
                         <td>
@@ -209,7 +211,7 @@
                                    ng-required="true"
                                    placeholder="Choose a country from the list"
                                    />
-                            <p ng-show="(registerForm.CountryInput.$pristine|| registerForm.CountryInput.$touched) && registerForm.CountryInput.$error.required && registerForm.$submitted" class="help-block">Country is required</p>
+                            <p ng-show="(!registerForm.CountryInput.$touched || registerForm.CountryInput.$error.required) && registerForm.$submitted" class="help-block">Country is required</p>
                         </td>
                         <!-- Category1 -->
                         <td>
@@ -238,8 +240,8 @@
                                    placeholder="Enter Phone number"
                                    ng-minlength="15"
                                    ng-maxlength="15"
-                                   required>
-                            <p ng-show="(registerForm.PhoneInput.$pristine|| registerForm.PhoneInput.$touched) && registerForm.PhoneInput.$error.required && registerForm.$submitted" class="help-block">Phone number is required</p>
+                                   ng-required="true">
+                            <p ng-show="registerForm.PhoneInput.$error.required && registerForm.$submitted" class="help-block">Phone number is required</p>
                             <p ng-show="registerForm.PhoneInput.$error.maxlength" class="help-block">Phone number is too long</p>
                             <p ng-show="registerForm.PhoneInput.$error.minlength" class="help-block">Phone number is too short, shold be 15 digits length</p>
                         </td>
