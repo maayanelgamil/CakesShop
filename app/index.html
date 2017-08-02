@@ -50,10 +50,13 @@
             </li>
         </div>
         <br/><br/>
-    <div ng-hide="$root.guest">
-        <label class="welcomeUser">Hello {{$root.UserName}},</label>
-        <label class="welcomeUser">Your last login was in: {{$root.LastLogin | date : "medium"}}</label>
-    </div>
+        <div ng-show="$root.guest">
+            <label class="welcomeUser">Hello guest,</label>
+        </div>
+        <div ng-hide="$root.guest">
+            <label class="welcomeUser">Hello {{$root.UserName}},</label>
+            <label class="welcomeUser">Your last login was in: {{$root.LastLogin | date : "medium"}}</label>
+        </div>
         <div ng-view style="order:3"> </div>
     </div>
     <br>
