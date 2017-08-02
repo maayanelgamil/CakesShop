@@ -25,11 +25,12 @@ app.use(express.static(path.join(__dirname, 'app')));
 
 app.use('*/logged/*', function (req, res, next) {
     console.log('Yeaaahhhhh');
-     /*if(checkLogin(req)){
-         next();
-     }else{
-         res.status(403).send("Unauthorized user");
-     }*/
+    next();
+    /*if(checkLogin(req)){
+        next();
+    }else{
+        res.status(403).send("Unauthorized user");
+    }*/
 
 });
 //The following is what sets the port of your local app, feel free to change that if needed.
