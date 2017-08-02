@@ -34,3 +34,20 @@
     text-align: center;
     position: static;
 }
+.pay_button{
+    padding: 10px 40px;
+    margin: 4px 0px 10px 1px;
+    color: #ffffff;
+    background: #94cedc;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    border-radius: 2%;
+    font-family: 'Shrikhand', cursive;
+    margin-left: 45%;
+    letter-spacing: 2px;
+}

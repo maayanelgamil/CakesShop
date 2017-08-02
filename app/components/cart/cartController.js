@@ -6,17 +6,21 @@ app.controller('cartController', ['$scope', '$http','localStorageService', '$roo
         let self = this;
         self.cart = localStorageService.get($rootScope.UserName);
 
+
         self.remove = function (cake) {
             let index = self.cart.indexOf(cake);
             self.cart.splice(index,1);
             localStorageService.set($rootScope.UserName, self.cart);
+            if (self.cart.length < 1){
+                $rootScope.cartEmpty = true;
+            }
         };
 
         self.CakeAmount = function(cake){
             if(!cake.Amount) {
                 cake.Amount = 1;
             }
-        }
+        };
 
         self.pay = function(){
             var order =
@@ -35,6 +39,11 @@ app.controller('cartController', ['$scope', '$http','localStorageService', '$roo
                 total += self.cart[i].price * self.cart[i].Amount ;
             }
             return total;
+        };
+
+        self.cartIsEmpty = function () {
+            let valueStored = localStorageService.get($rootScope.UserName);
+            return (!valueStored || self.cart.length >0)
         }
     }]);
 
