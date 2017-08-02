@@ -11,7 +11,7 @@
                            class="form-control logInput"
                            name="usernameInput"
                            placeholder="Enter Username">
-                    <p ng-show="(loginForm.usernameInput.$error.required || loginForm.usernameInput.$pristine)&& loginForm.$submitted" class="help-block">username is required</p>
+                    <span ng-show="(loginForm.usernameInput.$error.required || loginForm.usernameInput.$pristine)&& loginForm.$submitted" class="help-block">username is required</span>
                 </div>
                 <div class="form-group">
                     <label class="logInputHeader">Password</label>
@@ -21,7 +21,7 @@
                            class="form-control logInput"
                            name="passwordInput"
                            placeholder="Enter Password">
-                    <p ng-show="(loginForm.passwordInput.$error.required || loginForm.passwordInput.$pristine)&& loginForm.$submitted" class="help-block">Password is required</p>
+                    <span ng-show="(loginForm.passwordInput.$error.required || loginForm.passwordInput.$pristine)&& loginForm.$submitted" class="help-block">Password is required</span>
                 </div>
                 <br>
                 <input type="submit"
