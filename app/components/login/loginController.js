@@ -23,8 +23,7 @@ app.controller('loginController', ['$scope', 'UserService', '$location', '$windo
                         alert('Login failed');
                     }
 
-                }, function (error) {
-                    self.errorMessage = error.data;
+                }, function () {
                     alert('log-in has failed');
                 })
             }
@@ -52,7 +51,7 @@ app.controller('loginController', ['$scope', 'UserService', '$location', '$windo
                         alert('Your password is:'+self.password.Password);
                         self.restorePswd = false;
                     },
-                    function(response){
+                    function(){
                         alert('Could not restore your password');
                     }
                 );

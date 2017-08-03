@@ -25,8 +25,7 @@ app.controller('registerController', ['$scope', '$location', '$window', '$http',
                     $window.alert('Register Successfully');
                     $location.path('/login');
                 }, function (error) {
-                    self.errorMessage = error.data;
-                    $window.alert('register has failed');
+                    $window.alert('User name exist, please choose another user name ');
                 })
             }
         };

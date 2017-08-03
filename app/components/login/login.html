@@ -30,9 +30,6 @@
                 <br>
                 <button ng-click="loginCtrl.getQuestions()" class="logSubmit">Restore Password</button>
             </form>
-            <div>
-                {{loginCtrl.errorMessage}}
-            </div>
         </div>
         <div ng-show="loginCtrl.restorePswd">
             <form name="restoreForm" ng-submit="loginCtrl.restore()" >
@@ -61,9 +58,6 @@
                        class="btn btn-success btn-lg logSubmit"
                        value="Restore Password">
             </form>
-            <div>
-                {{loginCtrl.errorMessage}}
-            </div>
         </div>
     </div>
 
