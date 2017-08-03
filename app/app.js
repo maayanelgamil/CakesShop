@@ -43,20 +43,18 @@ app.factory('UserService', ['$http', 'localStorageService', '$filter', '$rootSco
     };
 
     service.getUserProducts = function(){
-        if(!$rootScope.top5){
+        if(!$rootScope.top5) {
             $http.get('/cakes/top5')
                 .then(function (res) {
                     $rootScope.top5 = res.data;
-
-                    if(!$rootScope.newProducts){
-                        $http.get('/cakes/getNewCakes')
-                            .then(function (res) {
-                                $rootScope.newProducts = res.data;
-                            })
-                            .catch(function (e) {
-                                return Promise.reject(e);
-                            });
-                    }
+                }).catch(function (e) {
+                return Promise.reject(e);
+            });
+        }
+        if(!$rootScope.newProducts){
+            $http.get('/cakes/getNewCakes')
+                .then(function (res) {
+                    $rootScope.newProducts = res.data;
                 })
                 .catch(function (e) {
                     return Promise.reject(e);
