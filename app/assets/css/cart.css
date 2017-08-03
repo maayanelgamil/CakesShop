@@ -86,3 +86,21 @@
 .ngdialog.ngdialog-custom .ngdialog-content {
     height: 800em;
 }
+
+.description_button {
+    background-color: #f58fa9;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #ffffff;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 0.8em;
+    padding: 0.4em 1em;
+    text-decoration: none;
+    font-weight: bold;
+}
+.description_button:hover {
+    background-color: #ffc1c6;
+}

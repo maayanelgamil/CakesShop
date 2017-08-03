@@ -3,12 +3,10 @@
     <div class="shop">
     <span ng-show="crtCtrl.cart.length" ng-repeat="p in crtCtrl.cart" class="product_description" style="height:22em">
         <img ng-src="{{p.ImagePath}}" class="img_product"/>
-        <div class="description">
             <label class="price"> {{p.price}} $ </label>
             </br>
-            <button class="addToCart_button" ng-click="crtCtrl.open(p)" >full details</button>
-            </div >
-        <br/>
+            <button class="description_button" ng-click="crtCtrl.open(p)" >full details</button>
+            <br/>
             <input type="number" ng-model="p.Amount" ng-change="crtCtrl.CakeAmount(p)" min="1">
             <div class="">
                 <button  class="addToCart_btn" ng-click="crtCtrl.remove(p)" style="margin-left: 4em;">Remove from cart</button>

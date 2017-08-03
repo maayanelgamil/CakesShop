@@ -15,7 +15,8 @@ app.config(['ngDialogProvider', function (ngDialogProvider) {
         closeByEscape: true
     });
 }]);
-app.config(['$qProvider', function ($qProvider) {
+
+app.config(['$qProvider', function ($qProvider) { //
     $qProvider.errorOnUnhandledRejections(false);
 }]);
 
