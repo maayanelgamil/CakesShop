@@ -14,9 +14,7 @@ app.controller('cartController', ['$scope', '$http','localStorageService', '$roo
         };
 
         self.CakeAmount = function(cake){
-            if(!cake.Amount) {
-                cake.Amount = 1;
-            }
+            localStorageService.set($rootScope.UserName, self.cart);
         };
 
         self.pay = function(){
@@ -37,10 +35,5 @@ app.controller('cartController', ['$scope', '$http','localStorageService', '$roo
             }
             return total;
         };
-
-        self.cartIsEmpty = function () {
-            let valueStored = localStorageService.get($rootScope.UserName);
-            return (!valueStored || self.cart.length >0)
-        }
     }]);
 

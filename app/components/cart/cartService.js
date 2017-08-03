@@ -7,20 +7,24 @@ app.factory('cartService', ['$http', 'localStorageService', '$filter', '$rootSco
 
         service.addToCart = function (cake) {
             let valueStored = localStorageService.get($rootScope.UserName);
-            cake.Amount = 1;
-            if (!valueStored){
+            if (!valueStored){ // first cake in the cart
+                cake.Amount = 1;
                 localStorageService.set($rootScope.UserName, [cake]);
+                alert('Cake was added successfully');
 
             } else{
-                var exist = valueStored.indexOf(cake);
-                if(exist === 'undefined' || exist === -1 ){ // verify that the cake is not already in the cart
-
+                var lookup = {};
+                for (var i = 0, len = valueStored.length; i < len; i++) { //look for this cake using lookup table
+                    lookup[valueStored[i].CakeID] = valueStored[i];
+                }
+                var exist = lookup[cake.CakeID];
+                if(!exist){ // verify that the cake is not already in the cart
+                    cake.Amount = 1;
                     valueStored.push(cake);
                     localStorageService.set($rootScope.UserName,valueStored);
                 }
+                alert('Cake was added successfully');
             }
-
-            alert('Cake was added successfully');
         };
 
         return service;
