@@ -13,18 +13,19 @@ app.controller('cakesController', ['$scope', '$http','localStorageService','User
         self.orderBy = "";
         self.reverseSort = false;
 
+        if(!$rootScope.guest) {
+            cakesService.getRecommendedProducts();  // gets all the recommended cakes
+        }
+        cakesService.allCakes()
+            .then(function(){
+                self.cakes = cakesService.cakes; // now all the cakes are save in cakeService.cakes !
+
+            });
         $http.get('/categories') // get categories
             .then(function (res) {
                 self.categories = res.data;
-                cakesService.allCakes()
-                    .then(function(){
-                        self.cakes = cakesService.cakes; // now all the cakes are save in cakeService.cakes !
-                        if(!$rootScope.guest) {
-                            cakesService.getRecommendedProducts();  // gets all the recommended cakes
-                         }
-                    })
-            })
-            .catch(function (e) {
+
+            }).catch(function (e) {
                 return Promise.reject(e);
             });
 
