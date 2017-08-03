@@ -15,6 +15,9 @@ app.config(['ngDialogProvider', function (ngDialogProvider) {
         closeByEscape: true
     });
 }]);
+app.config(['$qProvider', function ($qProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
+}]);
 
 app.controller('mainController', ['$scope', 'UserService', '$location', '$window', '$http','localStorageService',
     '$filter', '$rootScope', 'cakesService',
