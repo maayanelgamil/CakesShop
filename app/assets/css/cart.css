@@ -51,3 +51,25 @@
     margin-left: 45%;
     letter-spacing: 2px;
 }
+
+.modalImg
+{
+    width: 5em;
+    height: 5em;
+    border: 0.5em solid white;
+    margin-right: 0.05em;
+    margin-left:0.05em;
+    border-radius: 0.2em;
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    float: left;
+}
+
+.modalText {
+    color: black;
+    font-size: 1em;
+    text-align: center;
+    display: inline-block;
+    float: right;
+}

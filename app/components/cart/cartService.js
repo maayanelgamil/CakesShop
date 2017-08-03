@@ -4,6 +4,7 @@ app.factory('cartService', ['$http', 'localStorageService', '$filter', '$rootSco
     function($http, localStorageService, $filter, $rootScope) {
 
         let service = {};
+        service.selectedCake = null;
 
         service.addToCart = function (cake) {
             let valueStored = localStorageService.get($rootScope.UserName);
@@ -29,3 +30,4 @@ app.factory('cartService', ['$http', 'localStorageService', '$filter', '$rootSco
 
         return service;
     }]);
+

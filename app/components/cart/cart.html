@@ -2,10 +2,9 @@
 <h1 class="header">My Cart</h1>
     <div class="shop">
     <span ng-show="crtCtrl.cart.length" ng-repeat="p in crtCtrl.cart" class="product_description" style="height:22em">
-        <img ng-src="{{p.ImagePath}}" class="img_product"/>
+        <img ng-src="{{p.ImagePath}}" class="img_product" ng-click="crtCtrl.open(p)"/>
         <div class="description">
             <label class="price"> {{p.price}} $ </label>
-            <label class="header_description"> {{p.CakeName}}</label>
             </br>
             <label class="content_description">{{p.Description}}</label>
             </div >
@@ -16,7 +15,7 @@
             </div>
     <br/>
     </span>
-        <div ng-hide="crtCtrl.cart.length">
+          <div ng-hide="crtCtrl.cart.length">
             <br>
             <br>
             <label class="amount"> Your Cart is empty</label>

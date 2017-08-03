@@ -1,9 +1,19 @@
 'use strict';
 
-var app = angular.module('CakesShop', [ 'ngRoute', 'LocalStorageModule']);
+var app = angular.module('CakesShop', [ 'ngRoute', 'LocalStorageModule', 'ngDialog']);
 
 app.config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
+}]);
+
+app.config(['ngDialogProvider', function (ngDialogProvider) {
+    ngDialogProvider.setDefaults({
+        className: 'ngdialog-theme-default',
+        plain: true,
+        showClose: true,
+        closeByDocument: true,
+        closeByEscape: true
+    });
 }]);
 
 app.controller('mainController', ['$scope', 'UserService', '$location', '$window', '$http','localStorageService',
