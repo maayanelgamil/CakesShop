@@ -11,9 +11,6 @@ app.controller('cartController', ['$scope', '$http','localStorageService', '$roo
             let index = self.cart.indexOf(cake);
             self.cart.splice(index,1);
             localStorageService.set($rootScope.UserName, self.cart);
-            if (self.cart.length < 1){
-                $rootScope.cartEmpty = true;
-            }
         };
 
         self.CakeAmount = function(cake){

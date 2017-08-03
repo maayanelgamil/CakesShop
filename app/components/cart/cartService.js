@@ -19,9 +19,7 @@ app.factory('cartService', ['$http', 'localStorageService', '$filter', '$rootSco
                     localStorageService.set($rootScope.UserName,valueStored);
                 }
             }
-            if ($rootScope.cartEmpty){
-                $rootScope.cartEmpty = false;
-            }
+
             alert('Cake was added successfully');
         };
 

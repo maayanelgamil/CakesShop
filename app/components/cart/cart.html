@@ -1,7 +1,7 @@
 <div ng-controller="cartController as crtCtrl">
 <h1 class="header">My Cart</h1>
     <div class="shop">
-    <span ng-hide="$root.cartEmpty" ng-repeat="p in crtCtrl.cart" class="product_description" style="height:22em">
+    <span ng-show="crtCtrl.cart.length" ng-repeat="p in crtCtrl.cart" class="product_description" style="height:22em">
         <img ng-src="{{p.ImagePath}}" class="img_product"/>
         <div class="description">
             <label class="price"> {{p.price}} $ </label>
@@ -16,7 +16,7 @@
             </div>
     <br/>
     </span>
-        <div ng-show="$root.cartEmpty">
+        <div ng-hide="crtCtrl.cart.length">
             <br>
             <br>
             <label class="amount"> Your Cart is empty</label>
