@@ -8,6 +8,9 @@
     display: inline;
     float: right;
 }
+.header_details{
+    height: 1em;
+}
 
 .headerCart{
     font-size: 18px;
@@ -100,6 +103,7 @@
     padding: 0.4em 1em;
     text-decoration: none;
     font-weight: bold;
+    width: 7.5em
 }
 .description_button:hover {
     background-color: #ffc1c6;

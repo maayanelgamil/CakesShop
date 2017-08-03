@@ -130,7 +130,7 @@
 }
 
 .price{
-    float: right!important;
+    float: right;
     font-size: 1.1em;
     font-weight: bold;
     text-align: center;
@@ -181,4 +181,12 @@
     margin-right: 0.7em;
     margin-top: 0.5em;
     width: 10em;
+}
+.recommended_text{
+    color: white;
+    font-family: Courgette, sans-serif;
+    font-size: 2em;
+    display: block;
+    text-align: center;
+    padding-top: 3.4em;
 }
