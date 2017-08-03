@@ -7,7 +7,7 @@
             </br>
             <button class="description_button" ng-click="crtCtrl.open(p)" >full details</button>
             <br/>
-            <input type="number" ng-model="p.Amount" ng-change="crtCtrl.CakeAmount(p)" min="1">
+            <input type="number" ng-model="p.Amount" ng-change="crtCtrl.CakeAmount(p)" min="1" max="p.StockAmount">
             <div class="">
                 <button  class="addToCart_btn" ng-click="crtCtrl.remove(p)" style="margin-left: 4em;">Remove from cart</button>
             </div>

@@ -10,7 +10,9 @@ app.controller('cartController', ['$scope', '$http','localStorageService', '$roo
             +' <label class="modalHeader">Name:</label> <label class="modalText">{{ngDialogData.CakeName}}</label>  <br/>  '
             +' <label class="modalHeader">Price: </label> <label class="modalText"> {{ngDialogData.price}} $ </label>  <br/>'
             +' <label class="modalHeader">Category: </label> <label class="modalText">{{ngDialogData.Category}}</label> <br/>'
-            +' <label class="modalHeader">Description: </label> <label class="modalText"> {{ngDialogData.Description}}</label> <br/>';
+            +' <label class="modalHeader">Description: </label> <label class="modalText"> {{ngDialogData.Description}}</label> <br/>'
+            +' <label class="modalHeader">Amount in stock: </label> <label class="modalText"> {{ngDialogData.StockAmount}}</label> <br/>';
+
 
         self.remove = function (cake) {
             let index = self.cart.indexOf(cake);
@@ -19,6 +21,11 @@ app.controller('cartController', ['$scope', '$http','localStorageService', '$roo
         };
 
         self.CakeAmount = function(cake){
+            if(!cake.Amount){
+                cake.Amount = 1;
+            }else if (cake.Amount > cake.StockAmount){
+                cake.Amount = cake.StockAmount;
+            }
             localStorageService.set($rootScope.UserName, self.cart);
         };
 
