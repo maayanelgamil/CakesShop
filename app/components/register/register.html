@@ -29,17 +29,19 @@
                             <label class="InputHeader2">Credit Card number</label>
                         </td>
                         <td>
-                            <input type="number"
+                            <input type="text"
                                    ng-model="regCtrl.user.CreditCardNumber"
+                                   ng-pattern="/^[0-9]*$/"
                                    class="form-control input"
                                    name="cardInput"
                                    placeholder="Enter Credit Card Number"
                                    ng-required="true"
                                    ng-minlength="16"
                                    ng-maxlength="16">
-                            <span ng-show="registerForm.PhoneInput.$error.required && registerForm.$submitted" class="help-block">Credit card number is required</span>
+                            <span ng-show="registerForm.cardInput.$error.required && registerForm.$submitted" class="help-block">Credit card number is required</span>
                             <span ng-show="registerForm.cardInput.$error.minlength" class="help-block">Credit Card number is too short, should be 16 digits</span>
                             <span ng-show="registerForm.cardInput.$error.maxlength" class="help-block">Credit Card number is too long, should be 16 digits</span>
+                            <span ng-show="registerForm.cardInput.$error.pattern">Credit Card number should contain numbers only!</span>
                         </td>
                     </tr>
                     <tr id="row_2">
@@ -234,8 +236,9 @@
                             <label class="InputHeader">Phone number</label>
                         </td>
                         <td>
-                            <input type="number"
+                            <input type="text"
                                    ng-model="regCtrl.user.Phone"
+                                   ng-pattern="/^[0-9]*$/"
                                    class="form-control input"
                                    name="PhoneInput"
                                    placeholder="Enter Phone number"
@@ -245,6 +248,7 @@
                             <span ng-show="registerForm.PhoneInput.$error.required && registerForm.$submitted" class="help-block">Phone number is required</span>
                             <span ng-show="registerForm.PhoneInput.$error.maxlength" class="help-block">Phone number is too long</span>
                             <span ng-show="registerForm.PhoneInput.$error.minlength" class="help-block">Phone number is too short, shold be 15 digits length</span>
+                            <span ng-show="registerForm.PhoneInput.$error.pattern">Phone number should contain numbers only!</span>
                         </td>
                         <!-- Category2 -->
                         <td>
@@ -307,9 +311,6 @@
                     </tr>
                 </table>
             </form>
-            <div>
-                {{regCtrl.errorMessage}}
-            </div>
         </div>
 
     </div>
