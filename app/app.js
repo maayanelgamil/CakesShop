@@ -21,10 +21,17 @@ app.config(['$qProvider', function ($qProvider) { //
 }]);
 
 app.controller('mainController', ['$scope', 'UserService', '$location', '$window', '$http','localStorageService',
-    '$filter', '$rootScope', 'cakesService',
-    function($scope, UserService, $location, $window,  $http, localStorageService, $filter, $rootScope, cakesService) {
+    '$filter', '$rootScope',
+    function($scope, UserService, $location, $window,  $http, localStorageService, $filter, $rootScope) {
     let self = this;
+
     UserService.initUser($rootScope);
+
+    self.logout = function () {
+        UserService.logout();
+        UserService.initUser($rootScope);
+    };
+
 }]);
 
 //-------------------------------------------------------------------------------------------------------------------

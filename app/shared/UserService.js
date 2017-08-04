@@ -2,8 +2,8 @@
  * Created by Maayan on 8/3/2017.
  */
 //-------------------------------------------------------------------------------------------------------------------
-app.factory('UserService', ['$http', 'localStorageService', '$filter', '$rootScope',
-    function($http, localStorageService, $filter, $rootScope) {
+app.factory('UserService', ['$http', 'localStorageService', '$filter', '$rootScope', '$location',
+    function($http, localStorageService, $filter, $rootScope, $location) {
         let service = {};
 
         service.initUser = function(){
@@ -75,6 +75,11 @@ app.factory('UserService', ['$http', 'localStorageService', '$filter', '$rootSco
                 .catch(function (e) {
                     return Promise.reject(e);
                 });
+        };
+
+        service.logout = function () {
+            localStorageService.cookie.remove('user');
+            $location.path("/");
         };
         return service;
     }]);

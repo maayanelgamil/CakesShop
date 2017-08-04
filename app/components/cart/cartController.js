@@ -37,6 +37,7 @@ app.controller('cartController', ['$scope', '$http','localStorageService', '$roo
                     Dollar: "",
                     TotalAmount: 0
             };
+            alert('This option will exist in the next version');
          //   $http.post('/addOrder')
         };
 
