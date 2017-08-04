@@ -188,5 +188,15 @@
     font-size: 2em;
     display: block;
     text-align: center;
-    padding-top: 3.4em;
+    padding-top: 7.4em;
+}
+.rcmnd_gif{
+    width: 10em;
+    height: 9em;
+    margin-left: 2.2em;
+    margin-top: 2em;
+    opacity: 0.8;
+    border-radius: 23%;
+    -moz-box-shadow: inset 10px 10px 50px #fff;
+    box-shadow: 0 1px 50px 20px #fff;
 }
