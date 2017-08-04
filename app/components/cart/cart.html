@@ -28,7 +28,9 @@
         </div>
     </div>
     <br/><br/><br/><br/>
+    <div ng-show="crtCtrl.cart.length">
     <label class="amount">Total amount: {{ crtCtrl.getTotal() | currency}}</label>
     <br/>
-<button class="pay_button" ng-click="crtCtrl.pay()">Pay</button>
+    <button class="pay_button" ng-click="crtCtrl.pay()">Pay</button>
+    </div>
 </div>
