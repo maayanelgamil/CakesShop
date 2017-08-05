@@ -90,6 +90,10 @@
     height: 800em;
 }
 
+.cart_text {
+    text-align: center;
+}
+
 .description_button {
     background-color: #f58fa9;
     -moz-border-radius: 4px;
@@ -103,8 +107,14 @@
     padding: 0.4em 1em;
     text-decoration: none;
     font-weight: bold;
-    width: 7.5em
+    width: 7.5em;
+    margin-top: 0.5em;
+    margin-left: 1em;
 }
 .description_button:hover {
-    background-color: #ffc1c6;
+    background-color: transparent;r: #ffc1c6;
+}
+
+input.cart_text{
+    width: 7em;
 }

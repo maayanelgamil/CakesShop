@@ -14,14 +14,14 @@ router.get('/getDollarRate', function (req,res) {
 router.get('/categories', function (req,res) {
     DButilsAzure.Select("Select * from Categories").then(function (result) {
         res.send(result);
-    }).catch(function(err){ res.status(400).send(err);});
+    }).catch(function(err){ res.send(err);});
 });
 
 //-------------------------------------------------------------------------------------------------------------------
 router.get('/supliers', function (req,res) {
     DButilsAzure.Select("Select * from Supliers").then(function (result) {
         res.send(result);
-    }).catch(function(err){ res.status(400).send(err);});
+    }).catch(function(err){ res.send(err);});
 });
 //-------------------------------------------------------------------------------------------------------------------
 router.post('/addOrder', function (req,res) {
@@ -53,9 +53,9 @@ router.post('/addOrder', function (req,res) {
                         DButilsAzure.Insert(updateQuery).then(function(result){
                             res.send(true);
                         });
-                    }).catch(function(err){ res.status(400).send(err);});
-                }).catch(function(err){ res.status(400).send(err);});
-    }).catch(function(err){ res.status(400).send(err);});
+                    }).catch(function(err){ res.send(err);});
+                }).catch(function(err){ res.send(err);});
+    }).catch(function(err){ res.send(err);});
 });
 //-------------------------------------------------------------------------------------------------------------------
 module.exports = router;

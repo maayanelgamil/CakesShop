@@ -29,7 +29,7 @@ app.use('*/logged/*', function (req, res, next) {
     if(checkLogin(req)){
         next();
     }else{
-        res.status(403).send("Unauthorized user");
+        res.send("Unauthorized user");
     }
 
 });
@@ -47,7 +47,7 @@ app.use(function(err, req, res) {
     if (res.headersSent) {
         return next(err);
     }
-    res.status(500).send({ error: err });
+    res.send({ error: err });
 });
 
 

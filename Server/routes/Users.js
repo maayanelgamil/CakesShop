@@ -32,28 +32,28 @@ router.post('/register', function (req,res) {     //Add User
                 DBUtilsAzure.Insert(categoryQuery).then(function (result)
                     {
                              res.send(result);
-                     }).catch(function(err){ res.status(400).send(err);});
+                     }).catch(function(err){ res.send(err);});
                 }
             else  res.send(false);
         }).catch(function(err){
-            res.status(400).send(err);});
+            res.send(err);});
     });
 //-------------------------------------------------------------------------------------------------------------------
 router.delete('/deleteUser', function (req,res) {
         var userId = req.body.UserName;
         if(userId){
         DBUtilsAzure.Delete("DELETE from [Users] WHERE [UserName] = '" + userId + "'").then(function (result) {
-            res.status(200).send('Delete succeeded');
-        }).catch(function(err){ res.status(400).send(err);});
+            res.send('Delete succeeded');
+        }).catch(function(err){ res.send(err);});
     }else{
-            res.status(400).send('Delete User faild: Since the user name is invalid ');
+            res.send('Delete User faild: Since the user name is invalid ');
     }
 });
 //-------------------------------------------------------------------------------------------------------------------
 router.get('/getAll', function (req,res,next) {
     DBUtilsAzure.Select('Select * from Users').then(function (result) {
         res.send(result);
-    }).catch(function(err){ res.status(400).send(err);});
+    }).catch(function(err){ res.send(err);});
 });
 //-------------------------------------------------------------------------------------------------------------------
 router.post('/login', function (req,res,next) {
@@ -70,14 +70,14 @@ router.post('/login', function (req,res,next) {
             res.send(null);
     }).catch(function(err){
         console.log(err);
-        res.sendStatus(403)});
+        res.send(err)});
 });
 //-------------------------------------------------------------------------------------------------------------------
 router.get('/questions/:name', function (req,res,next) {
     let name = req.params.name;
     DBUtilsAzure.Select("Select [Question1],[Question2] from Users Where UserName = '" + name + "'").then(function (result) {
         res.send(result[0]);
-    }).catch(function(err){ res.status(400).send(err);});
+    }).catch(function(err){ res.send(err);});
 });
 //-------------------------------------------------------------------------------------------------------------------
 router.put('/restorePassword', function (req,res,next) {
@@ -89,16 +89,16 @@ router.put('/restorePassword', function (req,res,next) {
             if(result.length > 0)
                 res.send(result[0]);
             else
-                res.status(400).send();
+                res.send();
 
-        }).catch(function(err){ res.status(400).send(err);});
+        }).catch(function(err){ res.send(err);});
 });
 //-------------------------------------------------------------------------------------------------------------------
 router.get('/orders/:name', function (req,res,next) {
     let name = req.params.name;
     DBUtilsAzure.Select("Select * from Orders Where [UserName] = '" + name + "'").then(function (result) {
         res.send(result);
-    }).catch(function(err){ res.status(400).send(err);});
+    }).catch(function(err){ res.send(err);});
 });
 //-------------------------------------------------------------------------------------------------------------------
 router.post('/addToCart', function (req,res,next) {
@@ -111,15 +111,15 @@ router.post('/addToCart', function (req,res,next) {
             res.send(result);
         else
             res.send(false);
-    }).catch(function(err){ res.status(400).send(err);});
+    }).catch(function(err){ res.send(err);});
 });
 //-------------------------------------------------------------------------------------------------------------------
 router.delete('/deleteFromCart', function (req,res) {
     var name = req.body.UserName;
     var cake = req.body.CakeID;
     DBUtilsAzure.Delete("DELETE from [CakesInCarts] WHERE [UserName] = '" + name + "' AND [CakeID] = '" + cake + "'").then(function (result) {
-        res.status(200).send('Delete succeeded');
-    }).catch(function(err){ res.status(400).send(err);});
+        res.send('Delete succeeded');
+    }).catch(function(err){ res.send(err);});
 });
 //-------------------------------------------------------------------------------------------------------------------
 router.get('/recommandation/logged/:name', function (req,res) {
@@ -132,7 +132,7 @@ router.get('/recommandation/logged/:name', function (req,res) {
             });
         else
             res.send(result);
-    }).catch(function(err){ res.status(400).send(err);});
+    }).catch(function(err){ res.send(err);});
 });
 
 module.exports = router;

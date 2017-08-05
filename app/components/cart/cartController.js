@@ -57,7 +57,7 @@ app.controller('cartController', ['$scope', '$http','localStorageService', '$roo
                             className: 'ngdialog-theme-default',
                             data: cartService.selectedCake,
                             showClose: true,
-                            width: 570
+                            width: 640
             });
         };
     }]);
