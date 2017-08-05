@@ -12,7 +12,7 @@ app.controller('loginController', ['$scope', 'UserService', '$location', '$windo
         self.login = function(valid) {
             if (valid) {
                 UserService.login(self.user).then(function (success) {
-                    var token = success.data;
+                    var token = success.data.token;
                     if (token){
                         var cookieObject = {UserName: self.user.UserName, Date: new Date(), Token: token }
                         localStorageService.cookie.set('user',cookieObject);

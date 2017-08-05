@@ -24,13 +24,13 @@ app.use(express.static(path.join(__dirname, 'app')));
 //app.use(express.logger('dev')); // This line is what turns on the server logger in the terminal.
 
 app.use('*/logged/*', function (req, res, next) {
-    console.log('Yeaaahhhhh');
-    next();
-    /*if(checkLogin(req)){
+   // console.log('Yeaaahhhhh');
+   // next();
+    if(checkLogin(req)){
         next();
     }else{
         res.status(403).send("Unauthorized user");
-    }*/
+    }
 
 });
 //The following is what sets the port of your local app, feel free to change that if needed.
