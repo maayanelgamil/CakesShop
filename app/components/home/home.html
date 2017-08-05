@@ -18,14 +18,14 @@
     </div>
     <div class="top5" ng-hide="$root.guest">
         <h1 class="header">Latest products of this month</h1>
-        <span ng-repeat="p in $root.newProducts" class="container" >
-        <img ng-src="{{p.ImagePath}}" class="imgTop5 image"/>
+        <span ng-repeat="c in $root.newProducts" class="container" >
+        <img ng-src="{{c.ImagePath}}" class="imgTop5 image"/>
         <div class="middle">
             <div class="text">
-               <h1 class="headerText"> {{p.CakeName}}</h1>
-                {{p.Description}}
+               <h1 class="headerText"> {{c.CakeName}}</h1>
+                {{c.Description}}
                 <br>
-                <h1 class="headerText"> {{p.price}} $ </h1>
+                <h1 class="headerText"> {{c.price}} $ </h1>
                 <button class="addToCart_button" ng-click="prdctCtrl.addToCart(p)">add to cart</button>
             </div>
         </div>

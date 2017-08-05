@@ -12,7 +12,7 @@ var route = require('./Server/routes/route');
 
 var app = express();
 app.locals.users = {};
-app.locals.tokens = 0;
+app.locals.tokens = 1;
 
 
 // uncomment after placing your favicon in /public
