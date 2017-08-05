@@ -208,7 +208,7 @@
                             <select type="text"
                                    ng-model="regCtrl.user.Country"
                                    class="form-control input"
-                                   ng-options="country.Name for country  in regCtrl.Countries"
+                                   ng-options="country.Name as country.Name for country  in regCtrl.Countries"
                                    name="CountryInput"
                                    ng-required="true"
                                    placeholder="Choose a country from the list"
