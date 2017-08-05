@@ -40,7 +40,7 @@ app.factory('UserService', ['$http', 'localStorageService', '$filter', '$rootSco
                 });
             }
             if(!$rootScope.newProducts){
-                $http.get('/cakes/getNewCakes')
+                $http.get('/cakes/logged/getNewCakes')
                     .then(function (res) {
                         $rootScope.newProducts = res.data;
                     })

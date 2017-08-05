@@ -44,7 +44,7 @@ router.delete('/deleteCake', function (req,res) {
     }).catch(function(err){ res.send(err);});
 });
 //-------------------------------------------------------------------------------------------------------------------
-router.get('/getNewCakes', function (req,res) {
+router.get('/logged/getNewCakes', function (req,res) {
     DButilsAzure.Select("SELECT TOP 5 * from [Cakes] ORDER BY CakeID DESC").then(function (result) {
         res.send(result);
     }).catch(function(err){ res.send(err);});
